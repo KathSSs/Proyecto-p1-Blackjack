@@ -38,6 +38,7 @@ Carta* Mazo::tomarCarta() {
     if (canCartas > 0) {
         return &cartas[--canCartas];
     }
+    else return nullptr;
     //QUE DEBERIA DE IR EN ELSE? UN RETURN NULLPTR?
     
 }

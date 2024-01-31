@@ -1,21 +1,21 @@
 #ifndef MANO_H
 #define MANO_H
-#include "Mazo.h"
+#include "NodoMano.h"
+#include <sstream>
 
 //ESTAMOS SEGURAS DE QUE EL VECTOR DE MANO ES DE 52?
 //PERO SI UN JUGADOR SOLO PUEDE TENER  CARTAS, PARA AHORRAR MEMORIA SERIA MEJOR 
 class Mano{
 
 private:
-	Carta* cartas[10];
+	NodoMano* inicio;
 	int cartUsadas;
-
 public:
 	Mano();
-	~Mano();
-	void agregarCarta(Mazo* nuevaCarta);
-	bool limpiar(); //aqui se puede cambiar a un bool para ver si se logra eliminar
-	int getPuntos();
+	virtual ~Mano();
+	bool agregarCarta(Mazo* nuevaCarta);
+	int getSumaPuntos();
+	std::string toString();
 
 
 };

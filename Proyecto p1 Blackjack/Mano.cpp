@@ -1,44 +1,57 @@
 #include "Mano.h"
+
 Mano::Mano()
 {
+	inicio = nullptr;
 	cartUsadas = 0;
-
-	for (int i = 0; i < 10; i++) {
-		this->cartas[i] = new Carta();
-	}
 }
 
 Mano::~Mano()
 {
-	for (int i = 0; i < 10; i++) {
-		if (cartas[i] != nullptr)
-			delete cartas[i];
-	}
+	if(inicio!=nullptr)delete inicio;
 }
 
-void Mano::agregarCarta(Mazo* nuevaCarta)
+bool Mano::agregarCarta(Mazo* nuevaCarta)
 {
-	if (cartUsadas < 10) {
-		cartas[cartUsadas] = nuevaCarta->tomarCarta();
+	if (inicio == nullptr) {
+		inicio = new NodoMano(nuevaCarta, inicio);
 		cartUsadas++;
+		return true;
 	}
+	else
+		if (inicio != nullptr) {
+			NodoMano* auxi = inicio;
+			auxi = auxi->getSiguiente();
+			NodoMano* nuevo = new NodoMano(nuevaCarta, nullptr);
+			auxi->setNodoMano(nuevo);
+			cartUsadas++;
+			return true;
+		}
+		else return false;
 }
 
-bool Mano::limpiar()
+int Mano::getSumaPuntos()
 {
-	for (int i = 0; i < cartUsadas; i++) {
-		cartas[i] = nullptr; //podemos usarlo para la siguiente partida, por eso no se elimina el vector
-		cartUsadas = 0;
-	}
-	if (cartas[0] == nullptr)return true;
-	else return false;
+	NodoMano* auxi = inicio;
+	int sumaPuntos=0;
+	if (auxi == nullptr)
+		sumaPuntos+=0;
+	else
+		while (auxi != nullptr) {
+			sumaPuntos += auxi->getCarta()->tomarCarta()->getValor();
+			auxi = auxi->getSiguiente();
+		}
+
+	return sumaPuntos;
 }
 
-int Mano::getPuntos()
+std::string Mano::toString()
 {
-	int sumaPuntosCartas = 0;
-	for (int i = 0; i < cartUsadas; i++) {
-		sumaPuntosCartas += cartas[i]->getValor();
+	NodoMano* auxi=inicio;
+	//std::stringstream s;
+	while (auxi != nullptr) {
+		auxi->getCarta()->tomarCarta()->Mostrar(); //Revisar
+		auxi = auxi->getSiguiente();
 	}
-	return sumaPuntosCartas;
+	//return s.str;
 }

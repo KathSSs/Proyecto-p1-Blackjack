@@ -24,6 +24,9 @@
     <ClInclude Include="Mano.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="NodoMano.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Carta.cpp">
@@ -36,6 +39,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Mano.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="NodoMano.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
