@@ -11,7 +11,7 @@ enum Palo {
 };
 
 enum ValorC {
-    AS = 1,
+    AS = 1, //comentar a katy
     DOS = 2,
     TRES = 3,
     CUATRO = 4,

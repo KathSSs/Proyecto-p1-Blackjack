@@ -7,14 +7,14 @@
 class Mano{
 
 private:
-	Carta* cartas[52];
+	Carta* cartas[10];
 	int cartUsadas;
 
 public:
 	Mano();
 	~Mano();
 	void agregarCarta(Mazo* nuevaCarta);
-	void limpiar(); //aqui se puede cambiar a un bool para ver si se logra eliminar
+	bool limpiar(); //aqui se puede cambiar a un bool para ver si se logra eliminar
 	int getPuntos();
 
 

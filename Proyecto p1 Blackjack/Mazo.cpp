@@ -34,8 +34,6 @@ void Mazo::barajar() {
         cartas[j] = tmp;
     }
 }
-
-
 Carta* Mazo::tomarCarta() {
     if (canCartas > 0) {
         return &cartas[--canCartas];

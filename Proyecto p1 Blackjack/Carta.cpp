@@ -15,27 +15,47 @@ void Carta::voltear() { bocaAbajo = !bocaAbajo; }
 void Carta::Mostrar() const{
     if (bocaAbajo) {
         std::cout << "Carta boca abajo" << std::endl;
+        std::cout << "  ----------------------  " << std::endl;
+        std::cout << "  |\t" << "        " << "\t|" << std::endl;
+        std::cout << "  |\t" << "        " << "\t|" << std::endl;
+        std::cout << "  |\t" << "        " << "\t|" << std::endl;
+        std::cout << "  |\t" <<  "Desconocida" << "  " << "\t|" << std::endl;
+        std::cout << "  |\t" << "        " << "\t|" << std::endl;
+        std::cout << "  |\t" << "        " << "\t|" << std::endl;
+        std::cout << "  |\t" << "        " << "\t|" << std::endl;
+        std::cout << "  ----------------------  " << std::endl;
     }
     else {
         std::string paloStr;
         switch (palo) {
-        case Palo::ESPADAS:
+        case Palo::ESPADAS:{
             paloStr = "Espadas";
             break;
-        case Palo::CORAZONES:
+        }
+        case Palo::CORAZONES:{
             paloStr = "Corazones";
             break;
-        case Palo::DIAMANTES:
+        }
+        case Palo::DIAMANTES:{
             paloStr = "Diamantes";
             break;
-        case Palo::TREBOLES:
+        }
+        case Palo::TREBOLES:{
             paloStr = "Treboles";
             break;
-        default:
-            paloStr = "Desconocido";
-            break;
         }
-
-        std::cout << "Valor: " << valor << ", Palo: " << paloStr << std::endl;
+        default: {
+            paloStr = "Desconocido";
+            break;}
+        }
+        std::cout << "  ----------------------  " << std::endl;
+        std::cout << "  |" << paloStr << "\t\t|" << std::endl;
+        std::cout << "  |\t" << "        " << "\t|" << std::endl;
+        std::cout << "  |\t" << "        " << "\t|" << std::endl;
+        std::cout << "  |\t" << "    " << valor << "    " << "\t|" << std::endl;
+        std::cout << "  |\t" << "        " << "\t|" << std::endl;
+        std::cout << "  |\t" << "        " << "\t|" << std::endl;
+        std::cout << "  |\t\t" << paloStr << std::endl;
+        std::cout << "  ----------------------  " << std::endl; 
     }
 }

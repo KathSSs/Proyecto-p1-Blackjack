@@ -24,7 +24,7 @@ void Mano::agregarCarta(Mazo* nuevaCarta)
 	}
 }
 
-void Mano::limpiar()
+bool Mano::limpiar()
 {
 	for (int i = 0; i < cartUsadas; i++) {
 		cartas[i] = nullptr; //podemos usarlo para la siguiente partida, por eso no se elimina el vector
@@ -37,4 +37,5 @@ int Mano::getPuntos()
 	for (int i = 0; i < cartUsadas; i++) {
 		sumaPuntosCartas += cartas[i]->getValor();
 	}
+	return sumaPuntosCartas;
 }
