@@ -1,7 +1,9 @@
 #ifndef JUGADORGENERICO_H
 #define JUGADORGENERICO_H
-
 #include "Mano.h"
+#include "Mazo.h"
+#include "Carta.h"
+
 class JugadorGenerico
 {
 protected:
@@ -11,7 +13,11 @@ public:
 	JugadorGenerico();
 	JugadorGenerico(Mano* m, std::string name);
 	~JugadorGenerico();
-	virtual Carta* pedirCarta()=0;
-	virtual bool sePaso()=0;
+	Carta* pedirCarta(Carta* nuevaCarta);
+	 bool sePaso();
+	 int getPuntos();
+	 std::string getName();
+	 void setNickName(std::string name);
+
 };
 #endif JUGADORGENERICO_H

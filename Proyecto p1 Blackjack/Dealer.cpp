@@ -4,12 +4,8 @@ Dealer::Dealer(Mano* m, std::string name):JugadorGenerico(m,name){}
 
 Dealer::~Dealer(){}
 
-Carta* Dealer::pedirCarta()
+void Dealer::volteaSegunda()
 {
-	return nullptr;
+
 }
 
-bool Dealer::sePaso()
-{
-	return false;
-}

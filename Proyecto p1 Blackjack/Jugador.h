@@ -9,7 +9,5 @@ private:
 public:
 	Jugador(Mano* m, std::string name);
 	~Jugador();
-	 Carta* pedirCarta();
-	 bool sePaso();
 };
 #endif JUGADOR_H

@@ -36,7 +36,7 @@ void Mazo::barajar() {
 }
 Carta* Mazo::tomarCarta() {
     if (canCartas > 0) {
-        return &cartas[--canCartas];
+        return cartas[canCartas-1];
     }
     //QUE DEBERIA DE IR EN ELSE? UN RETURN NULLPTR?
     
