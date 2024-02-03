@@ -14,6 +14,7 @@ public:
 	void agregarCarta(Mazo* nuevaCarta);
 	bool limpiar(); //Comprueba que se eliminan las cartas de la mano de la partida anterior
 	int getPuntos();
+	void voltea2();
 
 
 };

@@ -13,10 +13,10 @@ JugadorGenerico::~JugadorGenerico()
 	delete mano;
 }
 
-Carta* JugadorGenerico::pedirCarta(Carta* nuevaCarta)
-{
-	mano->agregarCarta(nuevaCarta);
-}
+//Carta* JugadorGenerico::pedirCarta()
+//{
+//	mano->agregarCarta(Mazo* nuevaCarta);
+//}
 
 bool JugadorGenerico::sePaso()
 {
@@ -25,7 +25,7 @@ bool JugadorGenerico::sePaso()
 
 int JugadorGenerico::getPuntos()
 {
-	mano->getPuntos();
+	return mano->getPuntos();
 }
 
 std::string JugadorGenerico::getName()

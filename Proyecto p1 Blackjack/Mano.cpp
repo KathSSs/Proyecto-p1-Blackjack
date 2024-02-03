@@ -12,7 +12,7 @@ Mano::~Mano()
 {
 	for (int i = 0; i < 10; i++) {
 		if (cartas[i] != nullptr)
-			delete cartas[i];
+			delete this->cartas[i];
 	}
 }
 
@@ -41,4 +41,9 @@ int Mano::getPuntos()
 		sumaPuntosCartas += cartas[i]->getValor();
 	}
 	return sumaPuntosCartas;
+}
+
+void Mano::voltea2()
+{
+	cartas[1]->voltear();
 }

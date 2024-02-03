@@ -6,6 +6,6 @@ Dealer::~Dealer(){}
 
 void Dealer::volteaSegunda()
 {
-
+	mano->voltea2();
 }
 

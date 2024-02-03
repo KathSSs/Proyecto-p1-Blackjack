@@ -13,7 +13,7 @@ public:
 	JugadorGenerico();
 	JugadorGenerico(Mano* m, std::string name);
 	~JugadorGenerico();
-	Carta* pedirCarta(Carta* nuevaCarta);
+	/*Carta* pedirCarta();*/
 	 bool sePaso();
 	 int getPuntos();
 	 std::string getName();
