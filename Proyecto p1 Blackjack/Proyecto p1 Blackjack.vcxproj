@@ -128,11 +128,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Carta.h" />
+    <ClInclude Include="Dealer.h" />
+    <ClInclude Include="Jugador.h" />
+    <ClInclude Include="JugadorGenerico.h" />
     <ClInclude Include="Mano.h" />
     <ClInclude Include="Mazo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Carta.cpp" />
+    <ClCompile Include="Dealer.cpp" />
+    <ClCompile Include="Jugador.cpp" />
+    <ClCompile Include="JugadorGenerico.cpp" />
     <ClCompile Include="Mano.cpp" />
     <ClCompile Include="Mazo.cpp" />
     <ClCompile Include="Principal.cpp" />
