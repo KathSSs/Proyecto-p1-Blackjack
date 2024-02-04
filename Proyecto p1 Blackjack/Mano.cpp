@@ -1,11 +1,18 @@
 #include "Mano.h"
-Mano::Mano()
-{
+Mano::Mano(Mazo* m) : mazo(m)
+{   
 	cartUsadas = 0;
-
 	for (int i = 0; i < 10; i++) {
 		this->cartas[i] = new Carta();
 	}
+}
+
+Mano::Mano() {
+	cartUsadas = 0;
+	for (int i = 0; i < 10; i++) {
+		this->cartas[i] = new Carta();
+	}
+	mazo = nullptr;
 }
 
 Mano::~Mano()
@@ -16,13 +23,13 @@ Mano::~Mano()
 	}
 }
 
-void Mano::agregarCarta(Mazo* nuevaCarta)
-{
+void Mano::agregarCarta(Carta* nuevaCarta) {
 	if (cartUsadas < 10) {
-		cartas[cartUsadas] = nuevaCarta->tomarCarta();
+		cartas[cartUsadas] = nuevaCarta;
 		cartUsadas++;
 	}
 }
+
 
 bool Mano::limpiar()
 {
@@ -42,6 +49,10 @@ int Mano::getPuntos()
 	}
 	return sumaPuntosCartas;
 }
+
+
+
+Mazo* Mano::getMazo() { return mazo; }
 
 void Mano::voltea2()
 {

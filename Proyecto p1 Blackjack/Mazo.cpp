@@ -35,10 +35,24 @@ void Mazo::barajar() {
     }
 }
 Carta* Mazo::tomarCarta() {
-    Mazo::barajar();
+   //no es necesario barajar cada vez que se toma la carta, asi que lo borré
     if (canCartas > 0) {
-        return &cartas[canCartas-1];
+        Carta* nuevaCarta = new Carta(cartas[canCartas - 1].getValor(), cartas[canCartas - 1].getPalo(), cartas[canCartas - 1].estaBocaAbajo());
+        canCartas--;
+        return nuevaCarta;
     }
-    //QUE DEBERIA DE IR EN ELSE? UN RETURN NULLPTR?
+    else {
+        std::cerr << "Error: El mazo está vacío." << std::endl;
+        return nullptr;
+    }
     
+}
+
+void Mazo::mostrarMazo() {
+
+    for (int i = 0; i < canCartas; i++) {
+        cartas[i].Mostrar();
+    }
+
+
 }

@@ -59,3 +59,6 @@ void Carta::Mostrar() const{
         std::cout << "  ----------------------  " << std::endl; 
     }
 }
+bool Carta::estaBocaAbajo() {
+    return bocaAbajo;
+}

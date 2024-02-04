@@ -2,11 +2,11 @@
 
 JugadorGenerico::JugadorGenerico()
 {
-	mano =	new Mano();
-	nickName = "Sin definir";
+	mano = new Mano();
+	
 }
 
-JugadorGenerico::JugadorGenerico(Mano* m, std::string name) : mano{ m }, nickName{ name }{}
+JugadorGenerico::JugadorGenerico(Mano* m) : mano{ m }{}
 
 JugadorGenerico::~JugadorGenerico()
 {
@@ -15,25 +15,7 @@ JugadorGenerico::~JugadorGenerico()
 
 //Carta* JugadorGenerico::pedirCarta()
 //{
-//	mano->agregarCarta(Mazo* nuevaCarta);
+//	mano->agregarCarta(Carta* nuevaCarta);
 //}
 
-bool JugadorGenerico::sePaso()
-{
-	return (mano->getPuntos() > 21);
-}
 
-int JugadorGenerico::getPuntos()
-{
-	return mano->getPuntos();
-}
-
-std::string JugadorGenerico::getName()
-{
-	return nickName;
-}
-
-void JugadorGenerico::setNickName(std::string name)
-{
-	nickName = name;
-}

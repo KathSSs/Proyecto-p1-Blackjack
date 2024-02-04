@@ -15,6 +15,7 @@ public:
 	void inicializar(); 
 	void barajar();
 	Carta* tomarCarta(); 
+	void mostrarMazo(); 
 	
 };
 #endif MAZO_H

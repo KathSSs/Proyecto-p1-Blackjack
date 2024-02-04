@@ -13,15 +13,19 @@ int main() {
 	std::cout << "MIEDO TERROR " << std::endl; 
 	m.inicializar(); 
 	m.barajar(); 
-	for (int i = 0; i < 5; ++i) {
-		Carta* carta = m.tomarCarta();
-		carta->Mostrar();
-
-	
-		man.getPuntos();
+	//m.mostrarMazo(); metodo para comprobar que se hicieran las 52 cartas
 
 
-	}
+
+	//for (int i = 0; i < 5; ++i) {
+	//	//Carta* carta = m.tomarCarta();
+	//	//carta->Mostrar();
+
+	//
+	//	//man.getPuntos();
+
+
+	//}
 	
 
 	return 0;

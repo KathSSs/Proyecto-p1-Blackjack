@@ -8,16 +8,14 @@ class JugadorGenerico
 {
 protected:
 	Mano* mano;
-	std::string nickName;
+	
 public:
 	JugadorGenerico();
-	JugadorGenerico(Mano* m, std::string name);
+	JugadorGenerico(Mano* m);
 	~JugadorGenerico();
-	/*Carta* pedirCarta();*/
-	 bool sePaso();
-	 int getPuntos();
-	 std::string getName();
-	 void setNickName(std::string name);
-
+	virtual Carta* pedirCarta() = 0;
+	virtual bool sePaso() = 0;
+	virtual int getPuntos() =0;
+	
 };
 #endif JUGADORGENERICO_H

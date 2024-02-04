@@ -38,6 +38,7 @@ public:
     int getValor() const;
     Palo getPalo() const;
     void voltear();
+    bool estaBocaAbajo(); 
     void Mostrar() const; //metodo de prueba de la clase 
 };
 
