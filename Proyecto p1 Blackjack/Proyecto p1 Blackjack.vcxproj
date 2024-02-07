@@ -131,6 +131,7 @@
     <ClInclude Include="Dealer.h" />
     <ClInclude Include="Jugador.h" />
     <ClInclude Include="JugadorGenerico.h" />
+    <ClInclude Include="Lista.h" />
     <ClInclude Include="Mano.h" />
     <ClInclude Include="Mazo.h" />
     <ClInclude Include="Nodo.h" />
@@ -140,6 +141,7 @@
     <ClCompile Include="Dealer.cpp" />
     <ClCompile Include="Jugador.cpp" />
     <ClCompile Include="JugadorGenerico.cpp" />
+    <ClCompile Include="Lista.cpp" />
     <ClCompile Include="Mano.cpp" />
     <ClCompile Include="Mazo.cpp" />
     <ClCompile Include="Principal.cpp" />

@@ -6,7 +6,6 @@ struct Nodo{
 		JugadorGenerico* dato;
 		Nodo* next;
 
-
 };
 #endif NODO_H
 
