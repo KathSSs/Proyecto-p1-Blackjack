@@ -9,8 +9,8 @@ public:
 	~Lista();
 	Nodo* getInicio();
 	void Insertar(JugadorGenerico*);
-	Nodo* Buscar(int);
-	void borrar(Nodo);
+	Nodo* Buscar(Nodo* ); 
+	void borrar(Nodo*); 
 	bool listaVacia(); 
 
 private:

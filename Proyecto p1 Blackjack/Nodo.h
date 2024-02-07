@@ -5,6 +5,7 @@
 struct Nodo{ 
 		JugadorGenerico* dato;
 		Nodo* next;
+		JugadorGenerico* getDato() { return dato; }
 
 };
 #endif NODO_H
