@@ -12,7 +12,7 @@ enum Palo {
 };
 
 enum ValorC {
-    AS = 1, //comentar a camila
+    AS = 1, //comentar a camila 
     DOS = 2,
     TRES = 3,
     CUATRO = 4,
@@ -40,7 +40,7 @@ public:
     Palo getPalo() const;
     void voltear();
     bool estaBocaAbajo(); 
-    std::string Mostrar() const; //metodo de prueba de la clase 
+    std::string Mostrar() const; //metodo que muestra una sola carta dependiendo de su condición  
 
 
 };

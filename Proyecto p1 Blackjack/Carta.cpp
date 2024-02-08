@@ -59,6 +59,7 @@ std::string Carta::Mostrar() const{
         s<< "  |\t\t" << paloStr << std::endl;
         s<< "  ----------------------  " << std::endl; 
     }
+    return s.str();
 }
 bool Carta::estaBocaAbajo() {
     return bocaAbajo;

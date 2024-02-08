@@ -58,3 +58,7 @@ std::string Jugador::toString()
 Mano* Jugador::getMano() {
 	return mano;
 }
+
+void Jugador::agregarCarta(Carta* nuevaCarta) {
+	mano->agregarCarta(nuevaCarta);
+}

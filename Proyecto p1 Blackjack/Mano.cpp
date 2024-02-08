@@ -7,16 +7,16 @@ Mano::Mano(Mazo* m) : mazo(m)
 	}
 }
 
+
 Mano::Mano() {
 	cartUsadas = 0;
-	for (int i = 0; i < 10; i++) {
-		this->cartas[i] = new Carta();
-	}
 	mazo = nullptr;
-	for (int i = 0; i < 2; i++) {
-		this->cartas[i] = mazo->tomarCarta();
+	for (int i = 0; i < 10; i++) {
+		cartas[i] = nullptr; // Inicializar todas las cartas como nulas
 	}
 }
+
+
 
 Mano::~Mano()
 {

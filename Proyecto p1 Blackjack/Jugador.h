@@ -18,5 +18,7 @@ public:
 	 void setMano(Mano* m);
 	 std::string toString();
 	 Mano* getMano(); 
+	 void agregarCarta(Carta*);
+
 };
 #endif JUGADOR_H

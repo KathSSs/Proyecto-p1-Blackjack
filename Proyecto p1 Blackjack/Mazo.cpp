@@ -1,21 +1,22 @@
 #include "Mazo.h"
 
-Mazo::Mazo() : cartas{nullptr}, canCartas{0}
-{}
-Mazo::~Mazo() { 
-    if (cartas != nullptr) {
-        delete[] cartas;
+Mazo::Mazo() : canCartas(0) {}
+
+
+Mazo::~Mazo() {
+    // Liberar la memoria de cada carta
+    for (int i = 0; i < canCartas; ++i) {
+        delete cartas[i];
     }
 }
 
 void Mazo::inicializar() {
-    // Crear el mazo completo con 52 cartas, espero en Dios
-    canCartas = 52;
-    cartas = new Carta[canCartas];
+    // Crear el mazo completo con 52 cartas
     int pos = 0;
     for (int palo = ESPADAS; palo <= TREBOLES; ++palo) {
         for (int valor = AS; valor <= KING; ++valor) {
-            cartas[pos++] = Carta(valor, static_cast<Palo>(palo),false );
+            cartas[pos++] = new Carta(valor, static_cast<Palo>(palo), false);
+            canCartas++;
         }
     }
 }
@@ -29,30 +30,25 @@ void Mazo::barajar() {
         int j = distribucion(rng);
 
         // Intercambiar cartas[i] y cartas[j] 
-        Carta tmp = cartas[i];
+        Carta* tmp = cartas[i];
         cartas[i] = cartas[j];
         cartas[j] = tmp;
     }
 }
+
 Carta* Mazo::tomarCarta() {
-   //no es necesario barajar cada vez que se toma la carta, asi que lo borré
     if (canCartas > 0) {
-        Carta* nuevaCarta = new Carta(cartas[canCartas - 1].getValor(), cartas[canCartas - 1].getPalo(), cartas[canCartas - 1].estaBocaAbajo());
-        canCartas--;
-        return nuevaCarta;
+        return cartas[--canCartas]; // Devolver la carta y decrementar la cantidad
     }
     else {
         std::cerr << "Error: El mazo está vacío." << std::endl;
         return nullptr;
     }
-    
 }
 
+
 void Mazo::mostrarMazo() {
-
     for (int i = 0; i < canCartas; i++) {
-        cartas[i].Mostrar();
+        cartas[i]->Mostrar(); // Llamar al método Mostrar de cada carta
     }
-
-
 }

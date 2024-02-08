@@ -6,7 +6,7 @@
 class Mazo
 {
 private:
-	Carta* cartas;
+	Carta* cartas[52];
 	int canCartas; 
 public: 
 

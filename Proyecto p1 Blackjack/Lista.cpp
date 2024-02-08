@@ -44,7 +44,7 @@ bool Lista::listaVacia() {
 }
 
 Nodo* Lista::Buscar(Nodo* no) {
-	if (!getInicio) {
+	if (getInicio() == nullptr) {
 		return nullptr; 
 	}
 	else {
