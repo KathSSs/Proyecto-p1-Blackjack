@@ -1,5 +1,10 @@
 #include "Jugador.h"
 
+Jugador::Jugador(std::string name)
+{
+	nickName = name;
+}
+
 Jugador::Jugador(Mano* m, std::string name):JugadorGenerico(m){}
 
 Jugador::~Jugador(){}
@@ -35,4 +40,9 @@ std::string Jugador::getName() {
 }
 void Jugador::setNickName(std::string name) {
 	nickName = name;
+}
+
+void Jugador::setMano(Mano* m)
+{
+	 mano = m; 
 }

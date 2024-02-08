@@ -1,6 +1,7 @@
 #include "Dealer.h"
 
-Dealer::Dealer(Mano* m, std::string name):JugadorGenerico(m){}
+
+Dealer::Dealer(Mano* m) :JugadorGenerico(m) { name = "Dealer"; }
 
 Dealer::~Dealer(){}
 
@@ -37,6 +38,11 @@ bool Dealer::sePaso() {
 
 int Dealer::getPuntos() {
 	return mano->getPuntos();
+}
+
+std::string Dealer::getName()
+{
+	return name;
 }
 
 

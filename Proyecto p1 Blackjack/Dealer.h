@@ -4,16 +4,17 @@ class Dealer :
     public JugadorGenerico
 {
 private:
-
+    std::string name;
 public:
-    Dealer(Mano* m, std::string name);
+ 
+    Dealer(Mano* m);
     ~Dealer();
     void volteaSegunda();
     Carta* pedirCarta();
     bool sePaso();
     int getPuntos();
     std::string getName();
-    void setNickName(std::string);
+   
 
 
 };

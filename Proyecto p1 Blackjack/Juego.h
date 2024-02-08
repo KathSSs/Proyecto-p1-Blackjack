@@ -2,10 +2,13 @@
 #define JUEGO_H		
 #include "Lista.h"
 #include "Mazo.h"
+#include "Jugador.h"
+#include "Dealer.h"
+
 class Juego
 {
 private: 
-	Lista listaJuagadores; 
+	Lista listaJugadores; 
 	Mazo*  baraja;
 
 public:

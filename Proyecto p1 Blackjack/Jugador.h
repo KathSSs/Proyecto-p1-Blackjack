@@ -7,6 +7,7 @@ class Jugador : public JugadorGenerico
 private:
 	std::string nickName;
 public:
+	Jugador(std::string name);
 	Jugador(Mano* m, std::string name);
 	~Jugador();
 	Carta* pedirCarta();
@@ -14,6 +15,6 @@ public:
 	 int getPuntos();
 	 std::string getName();
 	 void setNickName(std::string);
-
+	 void setMano(Mano* m);
 };
 #endif JUGADOR_H
