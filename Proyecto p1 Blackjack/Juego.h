@@ -16,6 +16,7 @@ public:
 	~Juego();
 	void jugar();
 	void mostrarJugadores();
+	void rodasJuego();
 	
 };
 
