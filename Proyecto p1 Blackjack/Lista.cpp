@@ -109,6 +109,8 @@ bool Lista::esAs() {
 	
 }
 
+
+
 void Lista::valorDeAs(int opcion) {
 	if (esAs()) {
 		std::cout << "Desea usar su AS con valor de 11 o de 1 ?\n";
@@ -145,3 +147,17 @@ int Lista::cuentaNodos()
 	}
 	return contador;
 }
+
+Jugador* Lista::getJugador(int in) {
+	if (in < 0 || in >= cuentaNodos()) {
+		std::cerr << "Índice de jugador fuera de rango." << std::endl;
+		return nullptr;
+	}
+
+	Nodo* tmp = inicio;
+	for (int i = 0; i < in; i++) {
+		tmp = tmp->next;
+	}
+	return dynamic_cast<Jugador*>(tmp->getDato());
+}
+

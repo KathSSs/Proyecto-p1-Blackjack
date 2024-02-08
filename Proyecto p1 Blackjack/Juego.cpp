@@ -49,6 +49,15 @@ void Juego::jugar()
 	
 	listaJugadores.toString();
 
+	// Turno de los jugadores
+	for (int i = 0; i < cantJugadores; i++) {
+		Jugador* jugador = listaJugadores.getJugador(i); 
+		std::cout << "Turno de " << jugador->getName() << ": " << std::endl;
+
+		// Mostrar la mano actual del jugador
+		std::cout << "Mano actual: " << jugador->getMano()->toStringMano() << std::endl; 
+
+
 }
 
 

@@ -2,6 +2,7 @@
 #define LISTA_H
 
 #include "Nodo.h"
+
 #include <sstream>
 class Lista {
 
@@ -12,11 +13,12 @@ public:
 	~Lista();
 	Nodo* getInicio();
 	void Insertar(JugadorGenerico*);
-	/*JugadorGenerico* retornaJugador(int numJugador);*/
+	Jugador* getJugador(int i);
 	Nodo* Buscar(Nodo* ); 
 	void borrar(Nodo*); 
 	bool listaVacia();
 	std::string toString();
+	
 	bool esAs();
 	void valorDeAs(int); 
 	int cuentaNodos(); 
