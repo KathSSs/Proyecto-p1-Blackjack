@@ -16,6 +16,7 @@ public:
 	virtual Carta* pedirCarta() = 0;
 	virtual bool sePaso() = 0;
 	virtual int getPuntos() =0;
+	virtual std::string toString() = 0;
 	
 };
 #endif JUGADORGENERICO_H

@@ -46,3 +46,12 @@ void Jugador::setMano(Mano* m)
 {
 	 mano = m; 
 }
+
+std::string Jugador::toString()
+{
+	std::stringstream s;
+	s << "\t" << nickName << std::endl;
+	mano->toStringMano();
+
+	return s.str();
+}

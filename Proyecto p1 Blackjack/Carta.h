@@ -2,6 +2,7 @@
 #define CARTA_H
 #include <iostream>
 #include <string> 
+#include <sstream>
 
 enum Palo {
     ESPADAS = 1,
@@ -39,7 +40,7 @@ public:
     Palo getPalo() const;
     void voltear();
     bool estaBocaAbajo(); 
-    void Mostrar() const; //metodo de prueba de la clase 
+    std::string Mostrar() const; //metodo de prueba de la clase 
 
 
 };

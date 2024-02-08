@@ -14,6 +14,7 @@ public:
     bool sePaso();
     int getPuntos();
     std::string getName();
+    std::string toString();
    
 
 

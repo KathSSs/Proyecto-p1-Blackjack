@@ -13,6 +13,9 @@ Mano::Mano() {
 		this->cartas[i] = new Carta();
 	}
 	mazo = nullptr;
+	for (int i = 0; i < 2; i++) {
+		this->cartas[i] = mazo->tomarCarta();
+	}
 }
 
 Mano::~Mano()
@@ -57,4 +60,13 @@ Mazo* Mano::getMazo() { return mazo; }
 void Mano::voltea2()
 {
 	cartas[1]->voltear();
+}
+
+std::string Mano::toStringMano()
+{
+	std::stringstream s;
+	for (int i = 0; i < cartUsadas; i++) {
+		s <<"  " << cartas[i]->Mostrar()<< "  ";
+	}
+	return s.str();
 }

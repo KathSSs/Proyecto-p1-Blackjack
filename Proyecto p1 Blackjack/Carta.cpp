@@ -12,18 +12,19 @@ int Carta::getValor() const {
 Palo Carta::getPalo() const { return palo; }
 void Carta::voltear() { bocaAbajo = !bocaAbajo; }
 
-void Carta::Mostrar() const{
+std::string Carta::Mostrar() const{
+    std::stringstream s;
     if (bocaAbajo) {
-        std::cout << "Carta boca abajo" << std::endl;
-        std::cout << "  ----------------------  " << std::endl;
-        std::cout << "  |\t" << "        " << "\t|" << std::endl;
-        std::cout << "  |\t" << "        " << "\t|" << std::endl;
-        std::cout << "  |\t" << "        " << "\t|" << std::endl;
-        std::cout << "  |\t" <<  "Desconocida" << "  " << "\t|" << std::endl;
-        std::cout << "  |\t" << "        " << "\t|" << std::endl;
-        std::cout << "  |\t" << "        " << "\t|" << std::endl;
-        std::cout << "  |\t" << "        " << "\t|" << std::endl;
-        std::cout << "  ----------------------  " << std::endl;
+        s << "Carta boca abajo" << std::endl;
+        s<< "  ----------------------  " << std::endl;
+        s<< "  |\t" << "        " << "\t|" << std::endl;
+        s<< "  |\t" << "        " << "\t|" << std::endl;
+        s<< "  |\t" << "        " << "\t|" << std::endl;
+        s<< "  |\t" <<  "Desconocida" << "  " << "\t|" << std::endl;
+        s<< "  |\t" << "        " << "\t|" << std::endl;
+        s<< "  |\t" << "        " << "\t|" << std::endl;
+        s<< "  |\t" << "        " << "\t|" << std::endl;
+        s<< "  ----------------------  " << std::endl;
     }
     else {
         std::string paloStr;
@@ -48,15 +49,15 @@ void Carta::Mostrar() const{
             paloStr = "Desconocido";
             break;}
         }
-        std::cout << "  ----------------------  " << std::endl;
-        std::cout << "  |" << paloStr << "\t\t|" << std::endl;
-        std::cout << "  |\t" << "        " << "\t|" << std::endl;
-        std::cout << "  |\t" << "        " << "\t|" << std::endl;
-        std::cout << "  |\t" << "    " << valor << "    " << "\t|" << std::endl;
-        std::cout << "  |\t" << "        " << "\t|" << std::endl;
-        std::cout << "  |\t" << "        " << "\t|" << std::endl;
-        std::cout << "  |\t\t" << paloStr << std::endl;
-        std::cout << "  ----------------------  " << std::endl; 
+        s<< "  ----------------------  " << std::endl;
+        s<< "  |" << paloStr << "\t\t|" << std::endl;
+        s<< "  |\t" << "        " << "\t|" << std::endl;
+        s<< "  |\t" << "        " << "\t|" << std::endl;
+        s<< "  |\t" << "    " << valor << "    " << "\t|" << std::endl;
+        s<< "  |\t" << "        " << "\t|" << std::endl;
+        s<< "  |\t" << "        " << "\t|" << std::endl;
+        s<< "  |\t\t" << paloStr << std::endl;
+        s<< "  ----------------------  " << std::endl; 
     }
 }
 bool Carta::estaBocaAbajo() {

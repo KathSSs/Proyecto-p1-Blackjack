@@ -76,3 +76,13 @@ void Lista::borrar(Nodo* m) {
 	aux->next = tmp->next;
 	delete tmp; 
 }
+std::string Lista:: toString() {
+
+	std::stringstream s;
+	Nodo* tmp = inicio;
+	while (tmp != nullptr) {
+		s << tmp->getDato()->toString() << std::endl;
+		tmp = tmp->next;
+	}
+		return s.str();
+}

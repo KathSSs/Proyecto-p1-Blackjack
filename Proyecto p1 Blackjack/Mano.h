@@ -1,7 +1,7 @@
 #ifndef MANO_H
 #define MANO_H
 #include "Mazo.h"
-
+#include <sstream>
 class Mano{
 
 private:
@@ -17,6 +17,7 @@ public:
 	bool limpiar(); //Comprueba que se eliminan las cartas de la mano de la partida anterior
 	int getPuntos();
 	void voltea2();
+	std::string toStringMano();
 
 
 };

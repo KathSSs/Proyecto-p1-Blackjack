@@ -45,6 +45,15 @@ std::string Dealer::getName()
 	return name;
 }
 
+std::string Dealer::toString()
+{
+	std::stringstream s;
+	s << "\t" << name << std::endl;
+	mano->toStringMano();
+
+	return s.str();
+}
+
 
 
 
