@@ -55,3 +55,6 @@ std::string Jugador::toString()
 
 	return s.str();
 }
+Mano* Jugador::getMano() {
+	return mano;
+}

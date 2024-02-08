@@ -15,7 +15,7 @@ public:
     int getPuntos();
     std::string getName();
     std::string toString();
-   
+    Mano* getMano(); 
 
 
 };

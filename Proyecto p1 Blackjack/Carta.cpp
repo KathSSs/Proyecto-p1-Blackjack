@@ -63,3 +63,5 @@ std::string Carta::Mostrar() const{
 bool Carta::estaBocaAbajo() {
     return bocaAbajo;
 }
+
+void Carta::setValor(int v) { valor = v; }

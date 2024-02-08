@@ -70,3 +70,22 @@ std::string Mano::toStringMano()
 	}
 	return s.str();
 }
+
+Carta* Mano::getCarta()
+{
+	for (int i = 0; i < cartUsadas; i++) {
+		return cartas[i];
+	}
+}
+
+
+bool Mano::esAs() {
+		
+			if (getCarta()->getValor() == 1) {
+				return true;
+			}
+			else{
+				return false;
+			}
+}
+	

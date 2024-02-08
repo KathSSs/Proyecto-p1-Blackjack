@@ -13,6 +13,12 @@ JugadorGenerico::~JugadorGenerico()
 	delete mano;
 }
 
+Mano* JugadorGenerico::getMano() {
+	return mano; 
+}
+
+
+
 //Carta* JugadorGenerico::pedirCarta()
 //{
 //	mano->agregarCarta(Carta* nuevaCarta);

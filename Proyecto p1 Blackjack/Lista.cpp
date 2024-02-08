@@ -80,12 +80,68 @@ std::string Lista:: toString() {
 
 	std::stringstream s;
 	Nodo* tmp = inicio;
+	int pos = 0; 
 	while (tmp != nullptr) {
-		s << tmp->getDato()->toString() << std::endl;
-		s<<tmp->getDato()->getPuntos();
-		tmp = tmp->next;
+			s << tmp->getDato()->toString() << std::endl;
+
+			s << tmp->getDato()->getPuntos();
+			
+			
+			tmp = tmp->next;
 		
 	}
 	
 		return s.str();
+}
+
+bool Lista::esAs() {
+	Nodo* tmp = inicio;
+	while (tmp != nullptr) {
+		if (tmp->getDato()->getMano()->getCarta()->getValor() == 1) {
+			return true;
+		}
+		else
+			tmp = tmp->next;
+		if (tmp->next == nullptr) {
+			return false;
+		}
+	}
+	
+}
+
+void Lista::valorDeAs(int opcion) {
+	if (esAs()) {
+		std::cout << "Desea usar su AS con valor de 11 o de 1 ?\n";
+		std::cout << " (1) 11    (2) 1   Valor a escoger: ";
+		std::cin >> opcion;
+
+	}
+		switch (opcion)
+		{
+		case 1: {
+			Nodo* tmp = inicio;
+			tmp->getDato()->getMano()->getCarta()->setValor(11);
+			break; 
+		}
+		case 2: {
+			Nodo* tmp = inicio;
+			tmp->getDato()->getMano()->getCarta()->setValor(1);
+			break;
+		}
+		default:
+			break;
+		}
+
+
+}
+
+int Lista::cuentaNodos()
+{
+	int contador = 0;
+	Nodo* tmp = inicio; 
+	while (tmp != nullptr) {
+		tmp = tmp->next; 
+		contador++;
+	}
+	return contador;
 }

@@ -17,6 +17,6 @@ public:
 	virtual bool sePaso() = 0;
 	virtual int getPuntos() =0;
 	virtual std::string toString() = 0;
-	
+	virtual Mano* getMano(); 
 };
 #endif JUGADORGENERICO_H

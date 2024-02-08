@@ -17,6 +17,9 @@ public:
 	void borrar(Nodo*); 
 	bool listaVacia();
 	std::string toString();
+	bool esAs();
+	void valorDeAs(int); 
+	int cuentaNodos(); 
 	//void guardaLista();
 	//void cargarLista();
 

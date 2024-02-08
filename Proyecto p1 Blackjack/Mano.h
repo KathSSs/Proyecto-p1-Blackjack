@@ -18,8 +18,8 @@ public:
 	int getPuntos();
 	void voltea2();
 	std::string toStringMano();
-
-
+	Carta* getCarta(); 
+	bool esAs(); 
 };
 
 #endif MANO_H

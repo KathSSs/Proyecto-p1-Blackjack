@@ -63,3 +63,6 @@ void Dealer::volteaSegunda()
 	mano->voltea2();
 }
 
+Mano* Dealer::getMano() {
+	return mano;
+}

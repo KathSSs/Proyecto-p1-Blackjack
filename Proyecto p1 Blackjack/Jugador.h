@@ -17,5 +17,6 @@ public:
 	 void setNickName(std::string);
 	 void setMano(Mano* m);
 	 std::string toString();
+	 Mano* getMano(); 
 };
 #endif JUGADOR_H

@@ -12,7 +12,7 @@ enum Palo {
 };
 
 enum ValorC {
-    AS = 1, //comentar a katy
+    AS = 1, //comentar a camila
     DOS = 2,
     TRES = 3,
     CUATRO = 4,
@@ -22,7 +22,6 @@ enum ValorC {
     OCHO = 8,
     NUEVE = 9,
     DIEZ = 10,
-    JACK = 11,
     QUEEN = 12,
     KING = 13
 };
@@ -37,6 +36,7 @@ public:
     Carta();
     ~Carta();
     int getValor() const;
+    void setValor(int );
     Palo getPalo() const;
     void voltear();
     bool estaBocaAbajo(); 
