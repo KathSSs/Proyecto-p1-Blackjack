@@ -38,7 +38,10 @@ void Juego::jugar()
 		dealerCPU->volteaSegunda();//Condición de dealer carta abajo
 	}
 	for (int i = 0; i < cantJugadores; i++) { //mostrar mano de cada jugador
-		listaJugadores.
+		listaJugadores.toString();
+
+		//Condición de AS
+	
 
 	}
 

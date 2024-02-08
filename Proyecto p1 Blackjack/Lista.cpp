@@ -82,7 +82,10 @@ std::string Lista:: toString() {
 	Nodo* tmp = inicio;
 	while (tmp != nullptr) {
 		s << tmp->getDato()->toString() << std::endl;
+		s<<tmp->getDato()->getPuntos();
 		tmp = tmp->next;
+		
 	}
+	
 		return s.str();
 }
