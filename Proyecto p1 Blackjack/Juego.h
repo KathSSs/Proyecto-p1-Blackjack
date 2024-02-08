@@ -6,7 +6,13 @@ class Juego
 {
 private: 
 	Lista listaJuagadores; 
-	Mazo  baraja;
+	Mazo*  baraja;
+
+public:
+	Juego();
+	~Juego();
+	void jugar();
+	void mostrarJugadores();
 
 };
 

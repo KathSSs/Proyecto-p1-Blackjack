@@ -21,6 +21,20 @@ void Lista::Insertar(JugadorGenerico* n) {
 }
 
 
+Lista::~Lista()
+{
+	Nodo* actual = inicio;
+
+	while (actual != NULL) {
+		inicio = inicio->next; //primero va a ser igual a la segunda posicion
+		borrar(actual);
+		actual = inicio; //Se asigna el valor de la primer posicion
+	}
+	actual = NULL;
+	inicio = NULL;
+}
+
+
 Nodo* Lista::getInicio() {
 	return inicio;
 }

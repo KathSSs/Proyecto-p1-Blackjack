@@ -40,6 +40,8 @@ public:
     void voltear();
     bool estaBocaAbajo(); 
     void Mostrar() const; //metodo de prueba de la clase 
+
+
 };
 
 #endif CARTA_H
