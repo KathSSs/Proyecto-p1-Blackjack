@@ -86,10 +86,15 @@ void Juego::rondasJuego(Jugador* j )
 			// El jugador pasa su turno
 			std::cout << "El jugador pasa su turno." << std::endl;
 			break;
-			break;
 		}
 		case 3: {
-
+			//aqui iria el metodo para guardar
+			break;
+		}
+		case 4: {
+			// Salir del juego
+			std::cout << "Saliendo del juego." << std::endl;
+			exit(0);
 			break;
 		}
 		default:
