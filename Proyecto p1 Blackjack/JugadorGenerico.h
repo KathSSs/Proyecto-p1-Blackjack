@@ -21,6 +21,6 @@ public:
 	virtual Mano* getMano(); 
 
 	virtual void guardarJugadorGenerico(std::ofstream& file) = 0;;
-	/*virtual void leerJugadorGenerico(std::ifstream& file)=0;*/
+	/*virtual JugadorGenerico* leerJugadorGenerico(std::ifstream& file)=0;*/
 };
 #endif JUGADORGENERICO_H

@@ -161,20 +161,19 @@ Jugador* Lista::getJugador(int in) {
 	return dynamic_cast<Jugador*>(tmp->getDato());
 }
 
-void Lista::guardarLista()
+void Lista::guardarLista()//cuarda la lista de jugadores
 {
 	std::ofstream file;
 	file.open("registros.txt", std::ios::app);
 
-	if (!file.is_open()) {
+	if (!file.is_open()) { //hace verificación de si esta cerrado o abierto
 		std::cout << "Error al abrir el archivo...\n";
 	}
 	Nodo* aux = inicio;
-	while (aux != NULL) {
-		inicio = inicio->next; //primero va a ser igual a la segunda posicion
-		file << inicio->getDato()->guardarJugadorGenerico(file) << " | ";
+	while (aux != nullptr) {
+		 aux->getDato()->guardarJugadorGenerico(file); //recurre al guardar de jugadorGenerico
 
-		aux = inicio; //Se asigna el valor de la primer posicion
+		 aux= aux->next; //Va a la siguiente posición
 	}
 	file.close();
 }
@@ -189,13 +188,13 @@ void Lista::cargarLista()
 	if (!file.is_open()) {
 		std::cout << "Error al abrir el archivo...\n";
 	}
-	JugadorGenerico* jugador = nullptr;
+	JugadorGenerico* jugadorArchi = new Jugador();
 	//revisar
 	
-	jugador = JugadorGenerico::leerJugadorGenerico(file);
-		if (jugador != nullptr) {
+	jugadorArchi = JugadorGenerico::leerJugadorGenerico(file);
+		if (jugadorArchi != nullptr) {
 			
-			insertar(jugador);
+			insertar(jugadorArchi);
 		}
 		
 	

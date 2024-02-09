@@ -3,7 +3,6 @@
 
 #include "Nodo.h"
 #include <fstream>
-
 #include <sstream>
 class Lista {
 
