@@ -1,71 +1,99 @@
 #include "Juego.h"
 
-Juego::Juego(int numJug) : numJugadores(numJug) {
-    mazo = new Mazo();
-    mazo->inicializar();
-    mazo->barajar();
-
-    jugadores = new Jugador * [numJugadores];
-    for (int i = 0; i < numJugadores; ++i) {
-        std::string nombre;
-        std::cout << "Ingrese el nombre del jugador " << i + 1 << ": ";
-        std::cin >> nombre;
-        jugadores[i] = new Jugador(nombre);
-    }
+Juego::Juego() {
+	baraja = nullptr;
 }
-    Juego::~Juego() {
-        delete mazo;
-        for (int i = 0; i < numJugadores; ++i) {
-            delete jugadores[i];
-        }
-        delete[] jugadores;
-        delete dealer;
-    }
+Juego::~Juego() {
+	if (baraja != nullptr) {
+		delete baraja;
+	}
+}
+void Juego::jugar()
+{
+	int opcion;
+	if (baraja == nullptr) {
+		baraja = new Mazo();
+	}
+	//inicializar y barajar el mazo 
+	baraja->inicializar();
+	baraja->barajar();
+
+	int cantJugadores = 0;
+
+	// Solicitar el número de jugadores
+	std::cout << "\tIngrese el numero de jugadores\t" << std::endl;
+	std::cin >> cantJugadores;
+
+	// Validar la cantidad de jugadores
+	if (cantJugadores < 1 || cantJugadores > 7) {
+		std::cerr << "Número de jugadores inválido." << std::endl;
+		return;
+	}
+	// Crear mano del dealer
+	Mano* dealerM = new Mano(); //esto esta vacio
+	Dealer* dealerCPU = new Dealer(dealerM); //comentar si utilizo pedirCarta o agrego otra como jugador
+	dealerCPU->pedirCarta();
+	dealerCPU->pedirCarta();
+	dealerCPU->volteaSegunda(); // Voltear la segunda carta del dealer
+
+	// Crear jugadores y repartir cartas iniciales
+	for (int i = 0; i < cantJugadores; i++) {
+		std::string nombre;
+		std::cout << "Ingrese el nombre del jugador " << i + 1 << ": ";
+		std::cin >> nombre;
+
+		Jugador* jugador = new Jugador(nombre);
+		jugador->agregarCarta(baraja->tomarCarta()); // Repartir carta inicial
+		jugador->agregarCarta(baraja->tomarCarta()); // Repartir segunda carta
+		listaJugadores.Insertar(jugador);
+	}
+
+	listaJugadores.toString();
+
+	// Turno de los jugadores
+	for (int i = 0; i < cantJugadores; i++) {
+		Jugador* jugador = listaJugadores.getJugador(i);
+		std::cout << "Turno de " << jugador->getName() << ": " << std::endl;
+
+		// Mostrar la mano actual del jugador
+		std::cout << "Mano actual: " << jugador->getMano()->toStringMano() << std::endl;
+		//opciones
 
 
-    void Juego::jugar() {
+	}
 
-        // Repartir cartas iniciales
-        for (int i = 0; i < numJugadores; ++i) {
-            jugadores[i]->recibirCarta(mazo->tomarCarta());
-            jugadores[i]->recibirCarta(mazo->tomarCarta());
-        }
-        dealer->recibirCarta(mazo->tomarCarta());
-        dealer->recibirCarta(mazo->tomarCarta());
 
-        // Mostrar manos iniciales
-        std::cout << "Mano del dealer: " << dealer->getMano() << std::endl;
-        for (int i = 0; i < numJugadores; ++i) {
-            std::cout << "Mano de " << jugadores[i]->getName()<< ": " << jugadores[i]->getMano() << std::endl;
-        }
 
-        // Turno de los jugadores
-        for (int i = 0; i < numJugadores; ++i) {
-            while (jugadores[i]->quiereCarta()) {
-                jugadores[i]->recibirCarta(mazo->tomarCarta());
-                std::cout << "Mano de " << jugadores[i]->getName() << ": " << jugadores[i]->getMano() << std::endl;
-            }
-        }
 
-        // Turno del dealer
-        while (dealer->debePedirCarta()) {
-            dealer->recibirCarta(mazo->tomarCarta());
-        }
-        std::cout << "Mano del dealer: " << dealer->getMano() << std::endl;
+}
 
-        // Determinar ganadores
-        for (int i = 0; i < numJugadores; ++i) {
-            if (jugadores[i]->getPuntos() > 21) {
-                std::cout << jugadores[i]->getName() << " se pasó de 21. Pierde." << std::endl;
-            }
-            else if (dealer->getPuntos() > 21 || jugadores[i]->getPuntos() > dealer->getPuntos()) {
-                std::cout << jugadores[i]->getName() << " gana." << std::endl;
-            }
-            else if (jugadores[i]->getPuntos() == dealer->getPuntos()) {
-                std::cout << jugadores[i]->getName() << " empata con el dealer." << std::endl;
-            }
-            else {
-                std::cout << jugadores[i]->getName() << " pierde." << std::endl;
-            }
-        }
-    }
+void Juego::rondasJuego(Jugador* j )
+{
+	int op = 0;
+	std::cout << "\tPosibles acciones " << std::endl;
+	std::cout << "\t1.Deme una carta\t2.Pasar\t3.Guardar partida\t4.Salir" << std::endl;
+	std::cin >> op;
+	do {
+		switch (op)
+		{
+		case 1: {
+			// Pedir una carta al mazo
+			j->agregarCarta(baraja->tomarCarta());
+			std::cout << "Carta recibida: " << j->getMano()->ultimaCarta()->Mostrar() << std::endl;
+			break;
+		}
+		case 2: {
+			// El jugador pasa su turno
+			std::cout << "El jugador pasa su turno." << std::endl;
+			break;
+			break;
+		}
+		case 3: {
+
+			break;
+		}
+		default:
+			break;
+		}
+	} while (op < 4);
+}

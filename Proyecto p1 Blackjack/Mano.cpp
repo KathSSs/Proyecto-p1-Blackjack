@@ -53,6 +53,12 @@ int Mano::getPuntos()
 	return sumaPuntosCartas;
 }
 
+Carta* Mano::ultimaCarta() {
+	if ( cartUsadas== 0) {
+		return nullptr; 
+	}
+	return cartas[cartUsadas - 1]; 
+}
 
 
 Mazo* Mano::getMazo() { return mazo; }
