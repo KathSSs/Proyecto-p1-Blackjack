@@ -21,5 +21,8 @@ public:
 	 Mano* getMano(); 
 	 void agregarCarta(Carta* nuevaCarta);
 	 void recibirCarta(Carta*); 
+	 void  guardarJugadorGenerico(std::ofstream& file);
+	 static Jugador* leerJugadorGenerico(std::ifstream& file);
+
 };
 #endif JUGADOR_H

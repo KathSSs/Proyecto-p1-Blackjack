@@ -2,6 +2,7 @@
 #define MANO_H
 #include "Mazo.h"
 #include <sstream>
+#include <fstream>
 class Mano{
 
 private:
@@ -11,6 +12,7 @@ private:
 public:
 	Mano(Mazo* m);
 	Mano();
+	Mano(int cartUsadasArchi, Carta* cartasArchi[10]);
 	~Mano();
 	void agregarCarta(Carta* nuevaCarta);
 	Mazo* getMazo(); 
@@ -21,6 +23,9 @@ public:
 	std::string toStringMano();
 	Carta* getCarta(); 
 	bool esAs(); 
+	void guardarMano(std::ofstream& file);
+	static Mano* leerMano(std::ifstream& file);
+	
 };
 
 #endif MANO_H

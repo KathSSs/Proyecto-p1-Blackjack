@@ -66,3 +66,34 @@ bool Carta::estaBocaAbajo() {
 }
 
 void Carta::setValor(int v) { valor = v; }
+
+void Carta::guardarCarta(std::ofstream& file) {
+    file << getValor() << '\t';
+    file << getPalo() << '\t';
+    file << bocaAbajo << '\n';
+}
+
+
+Carta* Carta::leerCarta(std::ifstream& file) {
+    std::string buffer;
+    std::string valorString = "";
+    std::string paloString= "";
+    std::string bocaAbajoString = "";
+    int valorInt;
+    Palo paloPalo;
+    int paloInt;
+    bool bocaAbajoBool;
+
+    while (std::getline(file, buffer)) {
+        std::istringstream linea{ buffer };
+        getline(linea, valorString, '\t');
+        linea >> paloString, ' | ';
+        linea >> bocaAbajoString, '\n';
+        std::stringstream(paloString) >> paloInt; //Conversiones de tipo de dato string a datos que recibe constructor de carta
+        valorInt = stoi(valorString);
+        paloPalo = Palo(paloInt);
+        std::stringstream(bocaAbajoString) >> bocaAbajoBool; 
+    }
+    //retorna una nueva carta con los valores de registro
+    return new Carta(valorInt,paloPalo,bocaAbajoBool);
+}

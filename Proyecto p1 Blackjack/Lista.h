@@ -2,6 +2,7 @@
 #define LISTA_H
 
 #include "Nodo.h"
+#include <fstream>
 
 #include <sstream>
 class Lista {
@@ -22,8 +23,8 @@ public:
 	bool esAs();
 	void valorDeAs(int); 
 	int cuentaNodos(); 
-	//void guardaLista();
-	//void cargarLista();
+	void guardarLista();
+	void cargarLista();
 
 };
 

@@ -87,3 +87,16 @@ void Dealer::volteaSegunda()
 Mano* Dealer::getMano() {
 	return mano;
 }
+void  Dealer::guardarJugadorGenerico(std::ofstream& file) {
+	file << getName() << '\t';
+	mano->guardarMano(file);
+}
+
+Dealer* Dealer::leerJugadorGenerico(std::ifstream& file) {
+	
+	std::string name = " ";
+	getline(file, name, '\t');
+	Mano* m = m->leerMano(file);
+	
+	return new Dealer(m);
+}

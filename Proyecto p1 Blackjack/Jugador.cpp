@@ -73,3 +73,15 @@ bool Jugador::quiereCarta() {
 	std::cin >> opcion;
 	return (opcion == 'S' || opcion == 's');
 }
+void  Jugador::guardarJugadorGenerico(std::ofstream& file) {
+	file << getName() << '\t';
+	mano->guardarMano(file);
+}
+
+Jugador* Jugador::leerJugadorGenerico(std::ifstream& file) {
+	std::string name = " ";
+	getline(file, name, '\t');
+	Mano* m = m->leerMano(file);
+	
+	return new Jugador(m,name);
+}

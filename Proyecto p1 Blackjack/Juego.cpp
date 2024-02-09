@@ -58,7 +58,7 @@ void Juego::jugar()
 		// Mostrar la mano actual del jugador
 		std::cout << "Mano actual: " << jugador->getMano()->toStringMano() << std::endl;
 		//opciones
-
+		rondasJuego(jugador);
 
 	}
 

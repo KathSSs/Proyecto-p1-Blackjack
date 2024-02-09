@@ -19,6 +19,7 @@ public:
     std::string toString();
     Mano* getMano(); 
     bool debePedirCarta(); 
-
+    void  guardarJugadorGenerico(std::ofstream& file);
+    static Dealer* leerJugadorGenerico(std::ifstream& file);
 };
 

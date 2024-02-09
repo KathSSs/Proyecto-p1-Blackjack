@@ -3,6 +3,7 @@
 #include "Mano.h"
 #include "Mazo.h"
 #include "Carta.h"
+#include <fstream>
 
 class JugadorGenerico
 {
@@ -18,5 +19,8 @@ public:
 	virtual int getPuntos() =0;
 	virtual std::string toString() = 0;
 	virtual Mano* getMano(); 
+
+	virtual void guardarJugadorGenerico(std::ofstream& file) = 0;;
+	/*virtual void leerJugadorGenerico(std::ifstream& file)=0;*/
 };
 #endif JUGADORGENERICO_H

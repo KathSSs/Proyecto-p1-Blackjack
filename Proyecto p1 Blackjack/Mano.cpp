@@ -10,9 +10,17 @@ Mano::Mano(Mazo* m) : mazo(m)
 
 Mano::Mano() {
 	cartUsadas = 0;
-	/*mazo = nullptr;*/
+	//mazo = nullptr;
 	for (int i = 0; i < 10; i++) {
 		cartas[i] = nullptr; // Inicializar todas las cartas como nulas
+	}
+}
+
+Mano::Mano(int cartUsadasArchi, Carta* cartasArchi[10])
+{
+	cartUsadas = cartUsadasArchi;
+	for (int i = 0; i < 10; i++) {
+		cartas[i] = cartasArchi[i];
 	}
 }
 
@@ -95,3 +103,26 @@ bool Mano::esAs() {
 			}
 }
 	
+void Mano::guardarMano(std::ofstream& file) {
+	file << cartUsadas << '\t';
+	for (int i = 0; i < cartUsadas; i++) {
+		 cartas[i]->guardarCarta(file);
+	}
+}
+
+Mano* Mano::leerMano(std::ifstream& file) {
+	Carta* cartasArchi[10];
+	std::string buffer;
+	int cartUsadasArchi;
+
+	while (std::getline(file, buffer)) {
+		std::istringstream linea{ buffer };
+		linea >> cartUsadasArchi;
+		for (int i = 0; i < cartUsadasArchi; i++) {
+			cartasArchi[i] = Carta::leerCarta(file);
+		}
+	}
+		return new Mano(cartUsadasArchi,cartasArchi);
+		file.close();
+	}
+
