@@ -1,6 +1,8 @@
 #include "Mazo.h"
 
-Mazo::Mazo() : canCartas(0) {}
+Mazo::Mazo() : canCartas(52) {
+
+}
 
 
 Mazo::~Mazo() {
@@ -11,6 +13,7 @@ Mazo::~Mazo() {
 }
 
 void Mazo::inicializar() {
+    canCartas = 0; 
     // Crear el mazo completo con 52 cartas
     int pos = 0;
     for (int palo = ESPADAS; palo <= TREBOLES; ++palo) {
@@ -25,7 +28,7 @@ void Mazo::barajar() {
     std::random_device dev;
     std::mt19937 rng(dev());
 
-    for (int i = canCartas - 1; i > 0; --i) {
+    for (int i = canCartas - 1; i >= 0; --i) { 
         std::uniform_int_distribution<int> distribucion(0, i);
         int j = distribucion(rng);
 
@@ -37,11 +40,13 @@ void Mazo::barajar() {
 }
 
 Carta* Mazo::tomarCarta() {
-    if (canCartas > 0) {
-        return cartas[--canCartas]; // Devolver la carta y decrementar la cantidad
+    if (canCartas >= 0) {
+        // Decrementar la cantidad de cartas disponibles
+        canCartas--;
+        return cartas[canCartas];
     }
     else {
-        std::cerr << "Error: El mazo está vacío." << std::endl;
+        std::cout << "Error: El mazo está vacío." << std::endl;
         return nullptr;
     }
 }

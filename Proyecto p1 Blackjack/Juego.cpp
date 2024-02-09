@@ -3,32 +3,36 @@
 Juego::Juego(){
 	baraja = nullptr;
 }
+
 Juego::~Juego() {
 	if (baraja != nullptr) {
 		delete baraja;
 	}
 }
+
 void Juego::jugar()
 {
-	int opcion;
+	int opcion = 0;
 	if (baraja == nullptr) {
 		baraja = new Mazo();
 	}
-	//inicializar y barajar el mazo 
-	baraja->inicializar();
-	baraja->barajar();
+		//inicializar y barajar el mazo 
+		baraja->inicializar();
+		baraja->barajar();
+	
 
-	int cantJugadores = 0;
+	int canti = 0; //le cambie el nombre por sospechas con recursividad 
 
 	// Solicitar el número de jugadores
 	std::cout << "\tIngrese el numero de jugadores\t" << std::endl;
-	std::cin >> cantJugadores;
+	std::cin >> canti;
 
 	// Validar la cantidad de jugadores
-	if (cantJugadores < 1 || cantJugadores > 7) {
-		std::cerr << "Número de jugadores inválido." << std::endl;
+	if (canti < 1 || canti> 7) {
+		std::cerr << "Numero de jugadores invalido." << std::endl;
 		return;
 	}
+	
 	// Crear mano del dealer
 	Mano* dealerM = new Mano(); //esto esta vacio
 	Dealer* dealerCPU = new Dealer(dealerM); //comentar si utilizo pedirCarta o agrego otra como jugador
@@ -37,7 +41,7 @@ void Juego::jugar()
 	dealerCPU->volteaSegunda(); // Voltear la segunda carta del dealer
 
 	// Crear jugadores y repartir cartas iniciales
-	for (int i = 0; i < cantJugadores; i++) {
+	for (int i = 0; i < canti; i++) {
 		std::string nombre;
 		std::cout << "Ingrese el nombre del jugador " << i + 1 << ": ";
 		std::cin >> nombre;
@@ -51,47 +55,66 @@ void Juego::jugar()
 	listaJugadores.toString();
 
 	// Turno de los jugadores
-	for (int i = 0; i < cantJugadores; i++) {
+	for (int i = 0; i < canti; i++) {
 		Jugador* jugador = listaJugadores.getJugador(i);
 		std::cout << "Turno de " << jugador->getName() << ": " << std::endl;
 
 		// Mostrar la mano actual del jugador
 		std::cout << "Mano actual: " << jugador->getMano()->toStringMano() << std::endl;
 		//opciones
+		char opcion;
+		do {
+			std::cout << "¿Desea pedir una carta mas? (S/N): ";
+			std::cin >> opcion;
 
+			if (opcion == 'S' || opcion == 's') {
+				Carta* nuevaCarta = baraja->tomarCarta();
+				jugador->agregarCarta(nuevaCarta); // Agregar nueva carta al jugador
+				std::cout << "Nueva carta recibida: " << nuevaCarta->Mostrar() << std::endl;
+				std::cout << "Mano actual: " << jugador->getMano()->toStringMano() << std::endl;
+			}
+		} while ((opcion == 'S' || opcion == 's') && !jugador->sePaso()); // Mientras el jugador desee pedir cartas y no se haya pasado de 21
 
+		if (jugador->sePaso()) {
+			std::cout << "¡Se ha pasado de 21! " << jugador->getName() << " pierde." << std::endl;
+		}
+		else {
+			std::cout << jugador->getName() << " pasa." << std::endl;
+		}
 	}
-	
 
-	
+	// Turno del dealer
+	std::cout << "Turno del dealer:" << std::endl;
+	std::cout << "Mano actual: " << dealerCPU->getMano()->toStringMano() << std::endl;
 
-}
+	// El dealer pide cartas hasta alcanzar 17 o más
+	while (dealerCPU->getPuntos() < 17) {
+		Carta* nuevaCarta = baraja->tomarCarta();
+		dealerCPU->pedirCarta(); // Agregar nueva carta al dealer
+		std::cout << "Nueva carta recibida: " << nuevaCarta->Mostrar() << std::endl;
+		std::cout << "Mano actual: " << dealerCPU->getMano()->toStringMano() << std::endl;
+	}
 
-void Juego::rodasJuego()
-{
-	int op = 0;
-	std::cout << "\tPosibles acciones " << std::endl;
-	std::cout << "\t1.Deme una carta\t2.Pasar\t3.Guardar partida\t4.Salir" << std::endl;
-	std::cin >> op;
-	do {
-		switch (op)
-		{
-		case 1: {
-
-			break;
+	if (dealerCPU->sePaso()) {
+		std::cout << "¡El dealer se ha pasado de 21! Todos los jugadores ganan." << std::endl;
+	}
+	else {
+		// Comparar las manos de los jugadores con la del dealer
+		for (int i = 0; i < canti; i++) {
+			Jugador* jugador = listaJugadores.getJugador(i);
+			if (!jugador->sePaso()) {
+				if (jugador->getPuntos() > dealerCPU->getPuntos()) {
+					std::cout << jugador->getName() << " gana." << std::endl;
+				}
+				else if (jugador->getPuntos() == dealerCPU->getPuntos()) {
+					std::cout << "Empate entre " << jugador->getName() << " y el dealer." << std::endl;
+				}
+				else {
+					std::cout << jugador->getName() << " pierde." << std::endl;
+				}
+			}
 		}
-		case 2: {
-
-			break;
-		}
-		case 3: {
-
-			break;
-		}
-		default:
-			break;
-		}
-	} while (op < 4);
+	}
 }
 
 
