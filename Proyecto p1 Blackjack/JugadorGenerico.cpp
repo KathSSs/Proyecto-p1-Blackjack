@@ -6,7 +6,9 @@ JugadorGenerico::JugadorGenerico()
 	
 }
 
-JugadorGenerico::JugadorGenerico(Mano* m) : mano{ m }{}
+JugadorGenerico::JugadorGenerico(Mano* m) : mano{ m }{
+	
+}
 
 JugadorGenerico::~JugadorGenerico()
 {

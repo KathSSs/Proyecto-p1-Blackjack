@@ -15,9 +15,11 @@ public:
 	 int getPuntos();
 	 std::string getName();
 	 void setNickName(std::string);
+	 bool quiereCarta(); 
 	 void setMano(Mano* m);
 	 std::string toString();
 	 Mano* getMano(); 
 	 void agregarCarta(Carta* nuevaCarta);
+	 void recibirCarta(Carta*); 
 };
 #endif JUGADOR_H

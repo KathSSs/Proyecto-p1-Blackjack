@@ -1,17 +1,16 @@
-#include "Juego.h"
-int main() {
-	
 #include <iostream>
 #include "Juego.h"
 
-        Juego juego;
+int main() {
+	
+    int numJugadores;
+    std::cout << "Ingrese el número de jugadores: ";
+    std::cin >> numJugadores;
 
-        // Iniciar el juego 
-        juego.jugar();
+    Juego juego(numJugadores);
+    juego.jugar();
 
-    
- 
-
+  
 
 
 	return 0;

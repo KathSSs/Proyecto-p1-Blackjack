@@ -1,9 +1,17 @@
 #include "Dealer.h"
 
 
+
 Dealer::Dealer(Mano* m) :JugadorGenerico(m) { name = "Dealer"; }
 
-Dealer::~Dealer(){}
+
+Dealer::Dealer() : JugadorGenerico(mano= new Mano()), name("Dealer") {
+}
+
+
+Dealer::~Dealer() {
+	delete mano; 
+}
 
 
 Carta* Dealer::pedirCarta() {
@@ -30,6 +38,15 @@ Carta* Dealer::pedirCarta() {
 	
 }
 
+void Dealer::recibirCarta(Carta* carta) {
+	if (mano != nullptr) {
+		mano->agregarCarta(carta);
+	}
+	else {
+		std::cerr << "Error: El puntero 'mano' es nullptr." << std::endl;
+	}
+}
+
 
 bool Dealer::sePaso() {
 	return (mano->getPuntos() > 21);
@@ -38,6 +55,10 @@ bool Dealer::sePaso() {
 
 int Dealer::getPuntos() {
 	return mano->getPuntos();
+}
+
+bool Dealer::debePedirCarta(){
+	return mano->getPuntos() < 17;
 }
 
 std::string Dealer::getName()

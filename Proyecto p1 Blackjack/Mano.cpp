@@ -10,7 +10,7 @@ Mano::Mano(Mazo* m) : mazo(m)
 
 Mano::Mano() {
 	cartUsadas = 0;
-	mazo = nullptr;
+	/*mazo = nullptr;*/
 	for (int i = 0; i < 10; i++) {
 		cartas[i] = nullptr; // Inicializar todas las cartas como nulas
 	}

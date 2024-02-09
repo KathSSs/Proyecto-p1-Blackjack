@@ -62,3 +62,14 @@ Mano* Jugador::getMano() {
 void Jugador::agregarCarta(Carta* nuevaCarta) {
 	mano->agregarCarta(nuevaCarta);
 }
+
+void Jugador::recibirCarta(Carta* carta) {
+	mano->agregarCarta(carta); // Agregar la carta recibida a la mano del jugador
+}
+
+bool Jugador::quiereCarta() {
+	char opcion;
+	std::cout << "¿Desea pedir una carta más? (S/N): ";
+	std::cin >> opcion;
+	return (opcion == 'S' || opcion == 's');
+}

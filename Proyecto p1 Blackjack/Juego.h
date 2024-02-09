@@ -1,22 +1,27 @@
 #ifndef JUEGO_H
 #define JUEGO_H		
-#include "Lista.h"
+#include "Lista.h"#include <iostream>
+#include <algorithm>
+#include <random>
+#include "Carta.h"
 #include "Mazo.h"
 #include "Jugador.h"
 #include "Dealer.h"
 
+
 class Juego
 {
 private: 
-	Lista listaJugadores; 
-	Mazo*  baraja;
+	Mazo* mazo;
+	Jugador** jugadores;
+	int numJugadores;
+	Dealer* dealer;
 
 public:
-	Juego();
+	Juego(int);
 	~Juego();
 	void jugar();
-	void mostrarJugadores();
-	void rondasJuego();
+	
 	
 };
 
