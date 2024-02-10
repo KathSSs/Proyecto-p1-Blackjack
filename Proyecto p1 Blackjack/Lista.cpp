@@ -188,7 +188,7 @@ void Lista::cargarLista()
 	if (!file.is_open()) {
 		std::cout << "Error al abrir el archivo...\n";
 	}
-	JugadorGenerico* jugadorArchi = new Jugador();
+	JugadorGenerico* jugadorArchi;
 	//revisar
 	
 	jugadorArchi = JugadorGenerico::leerJugadorGenerico(file);
@@ -196,7 +196,5 @@ void Lista::cargarLista()
 			
 			insertar(jugadorArchi);
 		}
-		
-	
 	file.close();
 }

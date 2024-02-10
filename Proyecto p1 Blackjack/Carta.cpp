@@ -79,10 +79,10 @@ Carta* Carta::leerCarta(std::ifstream& file) {
     std::string valorString = "";
     std::string paloString= "";
     std::string bocaAbajoString = "";
-    int valorInt;
+    int valorInt=0;
     Palo paloPalo;
-    int paloInt;
-    bool bocaAbajoBool;
+    int paloInt=0;
+    bool bocaAbajoBool=true;
 
     while (std::getline(file, buffer)) {
         std::istringstream linea{ buffer };

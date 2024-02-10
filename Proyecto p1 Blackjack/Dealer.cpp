@@ -2,11 +2,10 @@
 
 
 
-Dealer::Dealer(Mano* m) :JugadorGenerico(m) { name = "Dealer"; }
+Dealer::Dealer(Mano* m) :JugadorGenerico(m, name) { }
 
 
-Dealer::Dealer() : JugadorGenerico(mano= new Mano()), name("Dealer") {
-}
+Dealer::Dealer(): JugadorGenerico(mano= new Mano(),name) {}
 
 
 Dealer::~Dealer() {
@@ -61,24 +60,6 @@ bool Dealer::debePedirCarta(){
 	return mano->getPuntos() < 17;
 }
 
-std::string Dealer::getName()
-{
-	return name;
-}
-
-std::string Dealer::toString()
-{
-	std::stringstream s;
-	s << "\t" << name << std::endl;
-	mano->toStringMano();
-
-	return s.str();
-}
-
-
-
-
-
 void Dealer::volteaSegunda()
 {
 	mano->voltea2();
@@ -86,17 +67,4 @@ void Dealer::volteaSegunda()
 
 Mano* Dealer::getMano() {
 	return mano;
-}
-void  Dealer::guardarJugadorGenerico(std::ofstream& file) {
-	file << getName() << '\t';
-	mano->guardarMano(file);
-}
-
-Dealer* Dealer::leerJugadorGenerico(std::ifstream& file) {
-	
-	std::string name = " ";
-	getline(file, name, '\t');
-	Mano* m = m->leerMano(file);
-	
-	return new Dealer(m);
 }

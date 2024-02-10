@@ -1,12 +1,12 @@
-#pragma once
+#ifndef DEALER_H
+#define DEALER_H
 #include "JugadorGenerico.h"
 class Dealer :
     public JugadorGenerico
 {
 private:
-    std::string name;
+    std::string name="Dealer";
 public:
- 
     Dealer(Mano* m);
     Dealer();
     ~Dealer();
@@ -15,11 +15,8 @@ public:
     void recibirCarta(Carta*);
     bool sePaso();
     int getPuntos();
-    std::string getName();
-    std::string toString();
     Mano* getMano(); 
     bool debePedirCarta(); 
-    void  guardarJugadorGenerico(std::ofstream& file);
-    static Dealer* leerJugadorGenerico(std::ifstream& file);
-};
 
+};
+#endif 

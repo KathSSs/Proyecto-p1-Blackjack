@@ -5,7 +5,7 @@ Jugador::Jugador(std::string name)
 	nickName = name;
 }
 
-Jugador::Jugador(Mano* m, std::string name):JugadorGenerico(m){}
+Jugador::Jugador(Mano* m, std::string name):JugadorGenerico(m, name){}
 
 Jugador::~Jugador(){}
 
@@ -35,26 +35,12 @@ bool Jugador::sePaso() {
 int Jugador::getPuntos() {
 	return mano->getPuntos();
 }
-std::string Jugador::getName() {
-	return nickName;
-}
-void Jugador::setNickName(std::string name) {
-	nickName = name;
-}
 
 void Jugador::setMano(Mano* m)
 {
 	 mano = m; 
 }
 
-std::string Jugador::toString()
-{
-	std::stringstream s;
-	s << "\t" << nickName << std::endl;
-	mano->toStringMano();
-
-	return s.str();
-}
 Mano* Jugador::getMano() {
 	return mano;
 }
@@ -72,16 +58,4 @@ bool Jugador::quiereCarta() {
 	std::cout << "¿Desea pedir una carta más? (S/N): ";
 	std::cin >> opcion;
 	return (opcion == 'S' || opcion == 's');
-}
-void  Jugador::guardarJugadorGenerico(std::ofstream& file) {
-	file << getName() << '\t';
-	mano->guardarMano(file);
-}
-
-Jugador* Jugador::leerJugadorGenerico(std::ifstream& file) {
-	std::string name = " ";
-	getline(file, name, '\t');
-	Mano* m = m->leerMano(file);
-	
-	return new Jugador(m,name);
 }
