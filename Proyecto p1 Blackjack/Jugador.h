@@ -6,7 +6,6 @@ class Jugador : public JugadorGenerico
 {
 
 public:
-	Jugador(std::string name);
 	Jugador(Mano* m, std::string name);
 	~Jugador();
 	Carta* pedirCarta();
@@ -17,6 +16,7 @@ public:
 	 Mano* getMano(); 
 	 void agregarCarta(Carta* nuevaCarta);
 	 void recibirCarta(Carta*); 
+	 JugadorGenerico* leerJugadorGenerico(std::ifstream& file);
 
 };
 #endif JUGADOR_H

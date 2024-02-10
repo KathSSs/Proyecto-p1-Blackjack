@@ -4,11 +4,9 @@
 class Dealer :
     public JugadorGenerico
 {
-private:
-    std::string name="Dealer";
 public:
-    Dealer(Mano* m);
-    Dealer();
+    Dealer(Mano* m,std::string name);
+    /*Dealer();*/
     ~Dealer();
     void volteaSegunda();
     Carta* pedirCarta();
@@ -17,6 +15,6 @@ public:
     int getPuntos();
     Mano* getMano(); 
     bool debePedirCarta(); 
-
+    JugadorGenerico* leerJugadorGenerico(std::ifstream& file);
 };
 #endif 

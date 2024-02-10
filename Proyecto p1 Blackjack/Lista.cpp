@@ -180,21 +180,23 @@ void Lista::guardarLista()//cuarda la lista de jugadores
 
 
 
-void Lista::cargarLista()
+void Lista::leerLista()
 {
 	std::ifstream file;
 	file.open("registros.txt", std::ios::in);
 
+	JugadorGenerico* jugadorArchi = nullptr;
+
 	if (!file.is_open()) {
 		std::cout << "Error al abrir el archivo...\n";
 	}
-	JugadorGenerico* jugadorArchi;
 	//revisar
-	
-	jugadorArchi = JugadorGenerico::leerJugadorGenerico(file);
-		if (jugadorArchi != nullptr) {
-			
-			insertar(jugadorArchi);
+	Nodo* auxiliarArchivo = inicio;
+	while (auxiliarArchivo != nullptr) {
+		while ((jugadorArchi = auxiliarArchivo->getDato()->leerJugadorGenerico(file)) != nullptr) {
+			Insertar(jugadorArchi);
 		}
+		auxiliarArchivo = auxiliarArchivo->next;
+	}
 	file.close();
 }

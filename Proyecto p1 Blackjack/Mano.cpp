@@ -113,7 +113,7 @@ void Mano::guardarMano(std::ofstream& file) {
 Mano* Mano::leerMano(std::ifstream& file) {
 	Carta* cartasArchi[10];
 	std::string buffer;
-	int cartUsadasArchi;
+	int cartUsadasArchi=0;
 
 	while (std::getline(file, buffer)) {
 		std::istringstream linea{ buffer };

@@ -1,10 +1,5 @@
 #include "Jugador.h"
 
-Jugador::Jugador(std::string name)
-{
-	nickName = name;
-}
-
 Jugador::Jugador(Mano* m, std::string name):JugadorGenerico(m, name){}
 
 Jugador::~Jugador(){}
@@ -51,6 +46,16 @@ void Jugador::agregarCarta(Carta* nuevaCarta) {
 
 void Jugador::recibirCarta(Carta* carta) {
 	mano->agregarCarta(carta); // Agregar la carta recibida a la mano del jugador
+}
+
+JugadorGenerico* Jugador::leerJugadorGenerico(std::ifstream& file)
+{
+	std::string name = "";
+	getline(file, name, '\t');
+
+	Mano* m = m->leerMano(file);
+
+	return new Jugador(m, name);
 }
 
 bool Jugador::quiereCarta() {

@@ -37,14 +37,6 @@ void  JugadorGenerico::guardarJugadorGenerico(std::ofstream& file) {
 	mano->guardarMano(file);
 }
 
-JugadorGenerico* JugadorGenerico::leerJugadorGenerico(std::ifstream& file) {
-	std::string name="";
-	getline(file, name, '\t');
-	
-		Mano* m = m->leerMano(file);
-	
-	return new JugadorGenerico(n, name);
-}
 
 //Carta* JugadorGenerico::pedirCarta()
 //{

@@ -23,7 +23,7 @@ public:
 	void valorDeAs(int); 
 	int cuentaNodos(); 
 	void guardarLista();
-	void cargarLista();
+	void leerLista();
 
 };
 
