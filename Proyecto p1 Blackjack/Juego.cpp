@@ -16,7 +16,7 @@ void Juego::jugar()
 		baraja = new Mazo();
 	}
 	//inicializar y barajar el mazo 
-	baraja->inicializar();
+	/*baraja->inicializar();*/
 	baraja->barajar();
 
 	int cantJugadores = 0;
@@ -31,11 +31,11 @@ void Juego::jugar()
 		return;
 	}
 	//// Crear mano del dealer
-	//Mano* dealerM = new Mano(); //esto esta vacio
-	//Dealer* dealerCPU = new Dealer(dealerM,"Dealer"); //comentar si utilizo pedirCarta o agrego otra como jugador
-	//dealerCPU->pedirCarta();
-	//dealerCPU->pedirCarta();
-	//dealerCPU->volteaSegunda(); // Voltear la segunda carta del dealer
+	Mano* dealerM = new Mano(baraja); //esto esta vacio
+	Dealer* dealerCPU = new Dealer(dealerM,"Dealer"); //comentar si utilizo pedirCarta o agrego otra como jugador
+	dealerCPU->pedirCarta();
+	dealerCPU->pedirCarta();
+	dealerCPU->volteaSegunda(); // Voltear la segunda carta del dealer
 
 	// Crear jugadores y repartir cartas iniciales
 	for (int i = 0; i < cantJugadores; i++) {

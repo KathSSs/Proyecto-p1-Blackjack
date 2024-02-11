@@ -10,12 +10,13 @@ int Carta::getValor() const {
 	return valor;
 }
 Palo Carta::getPalo() const { return palo; }
+
 void Carta::voltear() { bocaAbajo = !bocaAbajo; }
 
-std::string Carta::Mostrar() const{
+std::string Carta::Mostrar(){
     std::stringstream s;
     if (bocaAbajo) {
-        s << "Carta boca abajo" << std::endl;
+        s<< "Carta boca abajo" << std::endl;
         s<< "  ----------------------  " << std::endl;
         s<< "  |\t" << "        " << "\t|" << std::endl;
         s<< "  |\t" << "        " << "\t|" << std::endl;

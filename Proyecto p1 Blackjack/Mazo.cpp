@@ -1,7 +1,9 @@
 #include "Mazo.h"
 
 Mazo::Mazo() : canCartas(52) {
-
+    for (int i = 0; i < canCartas; i++) {
+        cartas[i] = nullptr; 
+    }
 }
 
 
@@ -13,13 +15,13 @@ Mazo::~Mazo() {
 }
 
 void Mazo::inicializar() {
-    int cantidad = 0; 
+    /*int cantidad = 0; */
     // Crear el mazo completo con 52 cartas
     int pos = 0;
     for (int palo = ESPADAS; palo <= TREBOLES; ++palo) {
         for (int valor = AS; valor <= KING; ++valor) {
             cartas[pos++] = new Carta(valor, static_cast<Palo>(palo), false);
-            cantidad++;
+           /* cantidad++;*/
         }
     }
 }
@@ -42,7 +44,7 @@ void Mazo::barajar() {
 Carta* Mazo::tomarCarta() {
     if (canCartas >= 0) {
         // Decrementar la cantidad de cartas disponibles
-        canCartas--;
+       /* canCartas--;*/
         return cartas[canCartas];
     }
     else {

@@ -8,7 +8,7 @@ class Mano{
 private:
 	Carta* cartas[10];
 	int cartUsadas;
-	Mazo* mazo; //le entra el mazo para saber con que mazo estan juagando 
+	Mazo* mazo; //le entra el mazo para saber con que mazo estan jugando 
 public:
 	Mano(Mazo* m);
 	Mano();

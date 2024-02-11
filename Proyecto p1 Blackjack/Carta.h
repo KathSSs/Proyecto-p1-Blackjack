@@ -41,7 +41,7 @@ public:
     Palo getPalo() const;
     void voltear();
     bool estaBocaAbajo(); 
-    std::string Mostrar() const; //metodo que muestra una sola carta dependiendo de su condición  
+    std::string Mostrar() ; //metodo que muestra una sola carta dependiendo de su condición  
     void guardarCarta(std::ofstream& salida);
     static Carta* leerCarta(std::ifstream& entrada);
 
