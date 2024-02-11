@@ -17,7 +17,7 @@ public:
 	void jugar();
 	void mostrarJugadores();
 	void rondasJuego(Jugador*);
-
+	void menu();
 };
 
 

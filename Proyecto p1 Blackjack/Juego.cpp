@@ -107,3 +107,25 @@ void Juego::rondasJuego(Jugador* j )
 		}
 	} while (op < 4);
 }
+
+void Juego::menu() {
+	int opcion = 0;
+	
+
+	do {
+		switch (opcion)
+		{
+		case 1: {
+			jugar();
+			break;
+		}
+		case 2: {
+			std::ifstream  file;
+			listaJugadores.leerLista(file);
+			break;
+		}
+		default:
+			break;
+		}
+	} while (opcion <= 2);
+}
