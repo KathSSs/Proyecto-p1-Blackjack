@@ -1,42 +1,78 @@
-<mxfile host="app.diagrams.net" modified="2024-02-11T19:14:36.645Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="Wz8rXleRVS-LdklD8xlU" version="23.1.2" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2024-02-11T23:02:15.809Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="-DV0qcO8F4DVVzFi_s_e" version="23.1.2" type="github" pages="2">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="489" dy="281" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="607" dy="349" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="1600" background="none" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="mG56EEctPgT57r4BzO9k-6" value="CARTA" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="7" y="866" width="252" height="283" as="geometry">
+          <mxGeometry x="21" y="1305" width="186" height="283" as="geometry">
             <mxRectangle x="38" y="860" width="76" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="mG56EEctPgT57r4BzO9k-7" value="-palo:Palo&lt;br&gt;-valor:int&amp;nbsp;&lt;br&gt;-bocaAbajo:bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="mG56EEctPgT57r4BzO9k-6" vertex="1">
-          <mxGeometry y="26" width="252" height="54" as="geometry" />
+          <mxGeometry y="26" width="186" height="54" as="geometry" />
         </mxCell>
         <mxCell id="mG56EEctPgT57r4BzO9k-8" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="mG56EEctPgT57r4BzO9k-6" vertex="1">
-          <mxGeometry y="80" width="252" height="13" as="geometry" />
+          <mxGeometry y="80" width="186" height="13" as="geometry" />
         </mxCell>
         <mxCell id="mG56EEctPgT57r4BzO9k-9" value="&lt;div&gt;Carta(int , Palo , bool)&lt;/div&gt;&lt;div&gt;Carta()&lt;/div&gt;&lt;div&gt;~Carta()&lt;/div&gt;&lt;div&gt;&lt;div&gt;+getValor() const: int&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setValor(int):void&lt;/div&gt;&lt;div&gt;+ getPalo() const:Palo&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ voltear():void&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;+estaBocaAbajo(): bool&lt;/div&gt;&lt;div&gt;&amp;nbsp;+Mostrar():Mostrar&lt;/div&gt;&lt;div&gt;&amp;nbsp;+guardarCarta(ofstream&amp;amp;):void&lt;/div&gt;&lt;div&gt;&amp;nbsp;+leerCarta(ifstream&amp;amp;):Carta*&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="mG56EEctPgT57r4BzO9k-6" vertex="1">
-          <mxGeometry y="93" width="252" height="190" as="geometry" />
+          <mxGeometry y="93" width="186" height="190" as="geometry" />
         </mxCell>
         <mxCell id="3B4X8Er8J08apR_vHpT9-0" value="MAZO" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="12" y="510" width="252" height="283" as="geometry">
+          <mxGeometry x="23" y="1022" width="181" height="196" as="geometry">
             <mxRectangle x="38" y="860" width="76" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3B4X8Er8J08apR_vHpT9-1" value="&lt;div&gt;cartas[52]:Carta*&lt;/div&gt;&lt;div&gt;-can: int&lt;/div&gt;&lt;div&gt;-tam: int&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="3B4X8Er8J08apR_vHpT9-0">
-          <mxGeometry y="26" width="252" height="54" as="geometry" />
+        <mxCell id="3B4X8Er8J08apR_vHpT9-1" value="&lt;div&gt;-cartas[52]:Carta*&lt;/div&gt;&lt;div&gt;-can: int&lt;/div&gt;&lt;div&gt;-tam: int&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="3B4X8Er8J08apR_vHpT9-0">
+          <mxGeometry y="26" width="181" height="54" as="geometry" />
         </mxCell>
         <mxCell id="3B4X8Er8J08apR_vHpT9-2" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="3B4X8Er8J08apR_vHpT9-0">
-          <mxGeometry y="80" width="252" height="13" as="geometry" />
+          <mxGeometry y="80" width="181" height="13" as="geometry" />
         </mxCell>
-        <mxCell id="3B4X8Er8J08apR_vHpT9-3" value="&lt;div&gt;Carta(int , Palo , bool)&lt;/div&gt;&lt;div&gt;Carta()&lt;/div&gt;&lt;div&gt;~Carta()&lt;/div&gt;&lt;div&gt;&lt;div&gt;+getValor() const: int&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setValor(int):void&lt;/div&gt;&lt;div&gt;+ getPalo() const:Palo&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ voltear():void&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;+estaBocaAbajo(): bool&lt;/div&gt;&lt;div&gt;&amp;nbsp;+Mostrar():Mostrar&lt;/div&gt;&lt;div&gt;&amp;nbsp;+guardarCarta(ofstream&amp;amp;):void&lt;/div&gt;&lt;div&gt;&amp;nbsp;+leerCarta(ifstream&amp;amp;):Carta*&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="3B4X8Er8J08apR_vHpT9-0">
-          <mxGeometry y="93" width="252" height="190" as="geometry" />
+        <mxCell id="3B4X8Er8J08apR_vHpT9-3" value="&lt;div&gt;+Mazo()&lt;/div&gt;&lt;div&gt;+~Mazo()&lt;/div&gt;&lt;div&gt;+inicializar():void&lt;/div&gt;&lt;div&gt;+barajar():void&lt;/div&gt;&lt;div&gt;+tomarCarta(): Carta*&lt;/div&gt;&lt;div&gt;+toStringMazo(): string&amp;nbsp;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="3B4X8Er8J08apR_vHpT9-0">
+          <mxGeometry y="93" width="181" height="103" as="geometry" />
         </mxCell>
         <mxCell id="3B4X8Er8J08apR_vHpT9-7" value="52" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-1" y="3" relative="1" as="geometry">
-            <mxPoint x="115" y="796" as="sourcePoint" />
-            <mxPoint x="125" y="862" as="targetPoint" />
+          <mxGeometry x="-0.6461" y="13" relative="1" as="geometry">
+            <mxPoint x="103" y="1230" as="sourcePoint" />
+            <mxPoint x="113" y="1301" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="114" y="1231" />
+              <mxPoint x="114" y="1266" />
+              <mxPoint x="113" y="1266" />
+            </Array>
+            <mxPoint as="offset" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="3B4X8Er8J08apR_vHpT9-8" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="109" y="958" as="sourcePoint" />
+            <mxPoint x="109" y="1019" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3B4X8Er8J08apR_vHpT9-9" value="Mano" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="31" y="601" width="160" height="354" as="geometry" />
+        </mxCell>
+        <mxCell id="3B4X8Er8J08apR_vHpT9-10" value="&lt;div&gt;-cartas[10]:Carta*&lt;/div&gt;&lt;div&gt;-cant:int&lt;/div&gt;&lt;div&gt;-tama:int&amp;nbsp;&lt;/div&gt;&lt;div&gt;-mazo:Mazo*&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="3B4X8Er8J08apR_vHpT9-9">
+          <mxGeometry y="26" width="160" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="3B4X8Er8J08apR_vHpT9-11" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="3B4X8Er8J08apR_vHpT9-9">
+          <mxGeometry y="90" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="3B4X8Er8J08apR_vHpT9-12" value="&lt;div&gt;+Mano(Mazo*)&lt;/div&gt;&lt;div&gt;+Mano()&lt;/div&gt;&lt;div&gt;+Mano(int ,Carta*)&lt;/div&gt;&lt;div&gt;+~Mano()&lt;/div&gt;&lt;div&gt;+agregarCarta(Carta*)&lt;/div&gt;&lt;div&gt;+limpiar():bool&lt;/div&gt;&lt;div&gt;+getMazo():Mazo*&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;div&gt;+limpiar():bool&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+getPuntos():int&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+voltea2():void&lt;/div&gt;&lt;div&gt;+ultimaCarta():Carta*&lt;/div&gt;&lt;div&gt;+toStringMano():string&lt;/div&gt;&lt;div&gt;+getCarta():Carta*&lt;/div&gt;&lt;div&gt;+esAs():bool&amp;nbsp;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;+guardarMano(ofstream&amp;amp;)&lt;/div&gt;&lt;div&gt;:void&lt;/div&gt;&lt;div&gt;+leerMano(ifstream&amp;amp;):Mano*&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="3B4X8Er8J08apR_vHpT9-9">
+          <mxGeometry y="98" width="160" height="256" as="geometry" />
+        </mxCell>
+        <mxCell id="oz2Mh7I0c5p0uMavqwqS-0" value="JugadorGenerico" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="333" y="174" width="228" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="oz2Mh7I0c5p0uMavqwqS-1" value="&lt;div&gt;-mano:Mano*&lt;/div&gt;&lt;div&gt;-nickName:string&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="oz2Mh7I0c5p0uMavqwqS-0">
+          <mxGeometry y="26" width="228" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="oz2Mh7I0c5p0uMavqwqS-2" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="oz2Mh7I0c5p0uMavqwqS-0">
+          <mxGeometry y="73" width="228" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="oz2Mh7I0c5p0uMavqwqS-3" value="&lt;div&gt;+JugadorGenerico()&lt;/div&gt;&lt;div&gt;+JugadorGenerico(Mano*,string)&lt;/div&gt;&lt;div&gt;~JugadorGenerico()&lt;/div&gt;&lt;div&gt;+setName(string):void&lt;/div&gt;&lt;div&gt;+getName():string&lt;/div&gt;&lt;div&gt;+pedirCarta(): virtual Carta*&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+sePaso(): virtual bool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;+getPuntos():virtual int&lt;/div&gt;&lt;div&gt;+toString():virtual string&lt;/div&gt;&lt;div&gt;+getMano():virtual Mano*&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+guardarJugadorGenerico(ofstream&amp;amp; )&lt;/div&gt;&lt;div&gt;+ leerJugadorGenerico(ifstream&amp;amp; ): JugadorGenerico*&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="oz2Mh7I0c5p0uMavqwqS-0">
+          <mxGeometry y="81" width="228" height="199" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
