@@ -18,4 +18,4 @@ public:
 	void mostrarMazo(); 
 	
 };
-#endif MAZO_H
+#endif 

@@ -46,7 +46,7 @@ void Juego::jugar()
 		std::cout << "Ingrese el nombre del jugador " << i + 1 << ": ";
 		std::cin >> nombre;
 
-		Mano* manoJ = new Mano(); 
+		Mano* manoJ = new Mano(baraja); 
 		Jugador* jugador = new Jugador(manoJ,nombre);
 		jugador->agregarCarta(baraja->tomarCarta()); // Repartir carta inicial
 		jugador->agregarCarta(baraja->tomarCarta()); // Repartir segunda carta

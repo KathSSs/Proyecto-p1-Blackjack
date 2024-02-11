@@ -42,15 +42,20 @@ void Mazo::barajar() {
     }
 }
 
+
 Carta* Mazo::tomarCarta() {
-    if (canCartas >= 0) {
+    Carta* cartAux;
+    if (canCartas > 0) {
         // Decrementar la cantidad de cartas disponibles
         canCartas--;
-        return cartas[canCartas];
+    /*    std::stringstream(cartas[canCartas]) >> &cartas[canCartas];*/
+        cartAux = cartas[canCartas];
+
+        return cartAux;
     }
     else {
         std::cout << "Error: El mazo está vacío." << std::endl;
-        return nullptr;
+        return  nullptr;
     }
 }
 

@@ -1,11 +1,13 @@
 #include "Mano.h"
 Mano::Mano(Mazo* m) : mazo(m)
 {   
-	cartUsadas = 0;
-	for (int i = 0; i < 10; i++) {
-		this->cartas[i] = new Carta();
+
+		cartUsadas = 0;
+		for (int i = 0; i < 10; i++) {
+			cartas[i] = mazo->tomarCarta(); // Inicializar con cartas del mazo
+		}
 	}
-}
+
 
 
 Mano::Mano() {
@@ -23,7 +25,6 @@ Mano::Mano(int cartUsadasArchi, Carta* cartasArchi[10])
 		cartas[i] = cartasArchi[i];
 	}
 }
-
 
 
 Mano::~Mano()
