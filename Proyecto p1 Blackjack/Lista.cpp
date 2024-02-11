@@ -70,6 +70,7 @@ void Lista::borrar(Nodo* m) {
 		inicio->next = tmp->next; 
 		delete aux; 
 	}
+
 	while (aux->next != tmp) {
 		aux = aux->next; 
 	}
@@ -161,9 +162,9 @@ Jugador* Lista::getJugador(int in) {
 	return dynamic_cast<Jugador*>(tmp->getDato());
 }
 
-void Lista::guardarLista()//cuarda la lista de jugadores
+void Lista::guardarLista(std::ofstream& file)//guarda la lista de jugadores
 {
-	std::ofstream file;
+	
 	file.open("registros.txt", std::ios::app);
 
 	if (!file.is_open()) { //hace verificación de si esta cerrado o abierto
@@ -180,9 +181,9 @@ void Lista::guardarLista()//cuarda la lista de jugadores
 
 
 
-void Lista::leerLista()
+void Lista::leerLista(std::ifstream& file)
 {
-	std::ifstream file;
+	
 	file.open("registros.txt", std::ios::in);
 
 	JugadorGenerico* jugadorArchi = nullptr;

@@ -9,7 +9,7 @@ private:
 	Carta* cartas[52];
 	int canCartas; 
 public: 
-
+	
 	Mazo(); 
 	~Mazo();
 	void inicializar(); 

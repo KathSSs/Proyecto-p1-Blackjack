@@ -22,8 +22,8 @@ public:
 	bool esAs();
 	void valorDeAs(int); 
 	int cuentaNodos(); 
-	void guardarLista();
-	void leerLista();
+	void guardarLista(std::ofstream& file);
+	void leerLista(std::ifstream& file);
 
 };
 

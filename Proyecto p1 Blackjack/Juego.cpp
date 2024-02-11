@@ -3,6 +3,7 @@
 Juego::Juego() {
 	baraja = nullptr;
 }
+
 Juego::~Juego() {
 	if (baraja != nullptr) {
 		delete baraja;
@@ -31,7 +32,7 @@ void Juego::jugar()
 	}
 	// Crear mano del dealer
 	Mano* dealerM = new Mano(); //esto esta vacio
-	Dealer* dealerCPU = new Dealer(dealerM); //comentar si utilizo pedirCarta o agrego otra como jugador
+	Dealer* dealerCPU = new Dealer(dealerM,"Dealer"); //comentar si utilizo pedirCarta o agrego otra como jugador
 	dealerCPU->pedirCarta();
 	dealerCPU->pedirCarta();
 	dealerCPU->volteaSegunda(); // Voltear la segunda carta del dealer
@@ -42,7 +43,8 @@ void Juego::jugar()
 		std::cout << "Ingrese el nombre del jugador " << i + 1 << ": ";
 		std::cin >> nombre;
 
-		Jugador* jugador = new Jugador(nombre);
+		Mano* manoJ = new Mano(); 
+		Jugador* jugador = new Jugador(manoJ,nombre);
 		jugador->agregarCarta(baraja->tomarCarta()); // Repartir carta inicial
 		jugador->agregarCarta(baraja->tomarCarta()); // Repartir segunda carta
 		listaJugadores.Insertar(jugador);
@@ -85,15 +87,18 @@ void Juego::rondasJuego(Jugador* j )
 		case 2: {
 			// El jugador pasa su turno
 			std::cout << "El jugador pasa su turno." << std::endl;
+			
 			break;
 		}
 		case 3: {
-			//aqui iria el metodo para guardar
+			std::cout << "Guardando la partida... "<<std::endl ; 
+			std::ofstream file;
+			listaJugadores.guardarLista(file); 
 			break;
 		}
 		case 4: {
 			// Salir del juego
-			std::cout << "Saliendo del juego." << std::endl;
+			std::cout << "Saliendo del juego.\n Gracias por Jugar!!" << std::endl;
 			exit(0);
 			break;
 		}
