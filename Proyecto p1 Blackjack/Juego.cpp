@@ -1,7 +1,7 @@
 #include "Juego.h"
 
 Juego::Juego() {
-	baraja = nullptr;
+	baraja = new Mazo();
 }
 
 Juego::~Juego() {
@@ -33,8 +33,11 @@ void Juego::jugar()
 	//// Crear mano del dealer
 	Mano* dealerM = new Mano(baraja); //esto esta vacio
 	Dealer* dealerCPU = new Dealer(dealerM,"Dealer"); //comentar si utilizo pedirCarta o agrego otra como jugador
-	dealerCPU->pedirCarta();
-	dealerCPU->pedirCarta();
+	
+		dealerCPU->pedirCarta();
+		dealerCPU->pedirCarta();
+	
+	
 	dealerCPU->volteaSegunda(); // Voltear la segunda carta del dealer
 
 	// Crear jugadores y repartir cartas iniciales

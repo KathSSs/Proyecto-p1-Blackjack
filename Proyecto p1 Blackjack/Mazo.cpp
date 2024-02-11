@@ -4,6 +4,7 @@ Mazo::Mazo() : canCartas(52) {
     for (int i = 0; i < canCartas; i++) {
         cartas[i] = nullptr; 
     }
+    inicializar();
 }
 
 
@@ -44,7 +45,7 @@ void Mazo::barajar() {
 Carta* Mazo::tomarCarta() {
     if (canCartas >= 0) {
         // Decrementar la cantidad de cartas disponibles
-       /* canCartas--;*/
+        canCartas--;
         return cartas[canCartas];
     }
     else {

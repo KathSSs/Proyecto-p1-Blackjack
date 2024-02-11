@@ -5,7 +5,7 @@
 
 class Mazo
 {
-private:
+protected:
 	Carta* cartas[52];
 	int canCartas; 
 public: 
