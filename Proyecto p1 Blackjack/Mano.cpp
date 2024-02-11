@@ -1,26 +1,19 @@
 #include "Mano.h"
-Mano::Mano(Mazo* m) : mazo(m)
-{   
 
-		cartUsadas = 0;
-		for (int i = 0; i < 10; i++) {
-			cartas[i] = mazo->tomarCarta(); // Inicializar con cartas del mazo
-		}
-	}
-
-
-
-Mano::Mano() {
-	cartUsadas = 0;
-	//mazo = nullptr;
-	for (int i = 0; i < 10; i++) {
-		cartas[i] = nullptr; // Inicializar todas las cartas como nulas
+Mano::Mano(Mazo* m) : mazo(m), cant(0), tama(10) {
+	for (int i = 0; i < tama; ++i) {
+		cartas[i] = nullptr;
 	}
 }
 
+
+
+Mano::Mano(): Mano(nullptr) {} // Constructor por defecto
+
+
 Mano::Mano(int cartUsadasArchi, Carta* cartasArchi[10])
 {
-	cartUsadas = cartUsadasArchi;
+	cant = cartUsadasArchi; //Se usa aqui cant??
 	for (int i = 0; i < 10; i++) {
 		cartas[i] = cartasArchi[i];
 	}
@@ -29,25 +22,26 @@ Mano::Mano(int cartUsadasArchi, Carta* cartasArchi[10])
 
 Mano::~Mano()
 {
-	for (int i = 0; i < 10; i++) {
-		if (cartas[i] != nullptr)
-			delete this->cartas[i];
+	for (int i = 0; i < cant; ++i) {
+		delete cartas[i];
 	}
 }
 
 void Mano::agregarCarta(Carta* nuevaCarta) {
-	if (cartUsadas < 10) {
-		cartas[cartUsadas] = nuevaCarta;
-		cartUsadas++;
+	if (cant < tama) {
+		cartas[cant++] = nuevaCarta;
+	}
+	else {
+		std::cout << "No se pueden agregar mas cartas, la mano esta llena." << std::endl;
 	}
 }
 
 
 bool Mano::limpiar()
 {
-	for (int i = 0; i < cartUsadas; i++) {
+	for (int i = 0; i < cant; i++) {
 		cartas[i] = nullptr; //podemos usarlo para la siguiente partida, por eso no se elimina el vector
-		cartUsadas = 0;
+		cant = 0;
 	}
 	if (cartas[0] == nullptr)return true;
 	else return false;
@@ -56,17 +50,19 @@ bool Mano::limpiar()
 int Mano::getPuntos()
 {
 	int sumaPuntosCartas = 0;
-	for (int i = 0; i < cartUsadas; i++) {
+	for (int i = 0; i < cant; i++) {
 		sumaPuntosCartas += cartas[i]->getValor();
 	}
 	return sumaPuntosCartas;
 }
 
 Carta* Mano::ultimaCarta() {
-	if ( cartUsadas== 0) {
-		return nullptr; 
+	if (cant > 0) {
+		return cartas[cant - 1];
 	}
-	return cartas[cartUsadas - 1]; 
+	else {
+		return nullptr;
+	}
 }
 
 
@@ -80,7 +76,7 @@ void Mano::voltea2()
 std::string Mano::toStringMano()
 {
 	std::stringstream s;
-	for (int i = 0; i < cartUsadas; i++) {
+	for (int i = 0; i < cant; i++) {
 		s <<"  " << cartas[i]->Mostrar()<< "  ";
 	}
 	return s.str();
@@ -88,7 +84,7 @@ std::string Mano::toStringMano()
 
 Carta* Mano::getCarta()
 {
-	for (int i = 0; i < cartUsadas; i++) {
+	for (int i = 0; i < cant; i++) {
 		return cartas[i];
 	}
 }
@@ -105,8 +101,8 @@ bool Mano::esAs() {
 }
 	
 void Mano::guardarMano(std::ofstream& file) {
-	file << cartUsadas << '\t';
-	for (int i = 0; i < cartUsadas; i++) {
+	file << cant << '\t';
+	for (int i = 0; i < cant; i++) {
 		 cartas[i]->guardarCarta(file);
 	}
 }
