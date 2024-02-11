@@ -16,7 +16,7 @@ public:
 	 Mano* getMano(); 
 	 void agregarCarta(Carta* nuevaCarta);
 	 void recibirCarta(Carta*); 
-	 JugadorGenerico* leerJugadorGenerico(std::ifstream& file);
+	/* JugadorGenerico* leerJugadorGenerico(std::ifstream& file);*/
 
 };
 #endif JUGADOR_H

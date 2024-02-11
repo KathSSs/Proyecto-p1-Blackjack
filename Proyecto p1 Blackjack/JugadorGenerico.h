@@ -22,7 +22,7 @@ public:
 	std::string toString();
 	virtual Mano* getMano(); 
 
-	void guardarJugadorGenerico(std::ofstream& file);
-	 virtual  JugadorGenerico* leerJugadorGenerico(std::ifstream& file)=0;
+	/*void guardarJugadorGenerico(std::ofstream& file);
+	 virtual  JugadorGenerico* leerJugadorGenerico(std::ifstream& file)=0;*/
 };
 #endif JUGADORGENERICO_H

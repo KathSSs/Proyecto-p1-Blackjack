@@ -15,6 +15,6 @@ public:
     int getPuntos();
     Mano* getMano(); 
     bool debePedirCarta(); 
-    JugadorGenerico* leerJugadorGenerico(std::ifstream& file);
+   /* JugadorGenerico* leerJugadorGenerico(std::ifstream& file);*/
 };
 #endif 

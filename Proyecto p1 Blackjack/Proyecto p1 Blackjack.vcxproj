@@ -136,6 +136,7 @@
     <ClInclude Include="Mano.h" />
     <ClInclude Include="Mazo.h" />
     <ClInclude Include="Nodo.h" />
+    <ClInclude Include="NodoMano.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Carta.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="Lista.cpp" />
     <ClCompile Include="Mano.cpp" />
     <ClCompile Include="Mazo.cpp" />
+    <ClCompile Include="NodoMano.cpp" />
     <ClCompile Include="Principal.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

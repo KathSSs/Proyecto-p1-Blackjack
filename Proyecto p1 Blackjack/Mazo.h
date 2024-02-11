@@ -6,16 +6,17 @@
 class Mazo
 {
 protected:
-	Carta* cartas[52];
-	int canCartas; 
+	Carta* cartas[52]; 
+	int can; 
+	int tam;
 public: 
-	
 	Mazo(); 
 	~Mazo();
 	void inicializar(); 
 	void barajar();
 	Carta* tomarCarta(); 
-	void mostrarMazo(); 
+	void voltea2();
+	std::string toStringMazo(); 
 	
 };
 #endif 

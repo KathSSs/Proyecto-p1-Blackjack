@@ -1,0 +1,18 @@
+﻿  Carta.cpp
+  Dealer.cpp
+  Juego.cpp
+C:\Users\Kathe\Downloads\Proyecto incorporación de lista\Proyecto-p1-Blackjack-Cambio-en-vectores\Proyecto-p1-Blackjack-Cambio-en-vectores\Proyecto p1 Blackjack\Juego.cpp(14,6): warning C4101: 'opcion': variable local sin referencia
+  Jugador.cpp
+  JugadorGenerico.cpp
+  Lista.cpp
+  Mano.cpp
+  Mazo.cpp
+  NodoMano.cpp
+  Principal.cpp
+  Generando código...
+C:\Users\Kathe\Downloads\Proyecto incorporación de lista\Proyecto-p1-Blackjack-Cambio-en-vectores\Proyecto-p1-Blackjack-Cambio-en-vectores\Proyecto p1 Blackjack\Mano.cpp(38): warning C4717: 'Mano::getMazo': recursiva para todas las rutas de acceso de control; la función provocará el desbordamiento de la pila en tiempo de ejecución
+C:\Users\Kathe\Downloads\Proyecto incorporación de lista\Proyecto-p1-Blackjack-Cambio-en-vectores\Proyecto-p1-Blackjack-Cambio-en-vectores\Proyecto p1 Blackjack\Mano.cpp(104): warning C4715: 'Mano::esAs': no todas las rutas de acceso de control devuelven un valor
+C:\Users\Kathe\Downloads\Proyecto incorporación de lista\Proyecto-p1-Blackjack-Cambio-en-vectores\Proyecto-p1-Blackjack-Cambio-en-vectores\Proyecto p1 Blackjack\Mano.cpp(75): error C4703: posiblemente se utilizó la variable de puntero local 'aux2' sin inicializar
+C:\Users\Kathe\Downloads\Proyecto incorporación de lista\Proyecto-p1-Blackjack-Cambio-en-vectores\Proyecto-p1-Blackjack-Cambio-en-vectores\Proyecto p1 Blackjack\Lista.cpp(63): warning C4715: 'Lista::Buscar': no todas las rutas de acceso de control devuelven un valor
+C:\Users\Kathe\Downloads\Proyecto incorporación de lista\Proyecto-p1-Blackjack-Cambio-en-vectores\Proyecto-p1-Blackjack-Cambio-en-vectores\Proyecto p1 Blackjack\Lista.cpp(111): warning C4715: 'Lista::esAs': no todas las rutas de acceso de control devuelven un valor
+C:\Users\Kathe\Downloads\Proyecto incorporación de lista\Proyecto-p1-Blackjack-Cambio-en-vectores\Proyecto-p1-Blackjack-Cambio-en-vectores\Proyecto p1 Blackjack\Dealer.cpp(38): warning C4715: 'Dealer::pedirCarta': no todas las rutas de acceso de control devuelven un valor

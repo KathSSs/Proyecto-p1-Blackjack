@@ -98,7 +98,7 @@ std::string Lista:: toString() {
 bool Lista::esAs() {
 	Nodo* tmp = inicio;
 	while (tmp != nullptr) {
-		if (tmp->getDato()->getMano()->getCarta()->getValor() == 1) {
+		if (tmp->getDato()->getMano()->esAs()/*getCarta()->getValor() == 1*/) {
 			return true;
 		}
 		else
@@ -123,12 +123,12 @@ void Lista::valorDeAs(int opcion) {
 		{
 		case 1: {
 			Nodo* tmp = inicio;
-			tmp->getDato()->getMano()->getCarta()->setValor(11);
+			tmp->getDato()->getMano()->getCartaMano()->setValor(11)/*getCarta()->setValor(11)*/;
 			break; 
 		}
 		case 2: {
 			Nodo* tmp = inicio;
-			tmp->getDato()->getMano()->getCarta()->setValor(1);
+			tmp->getDato()->getMano()->getCartaMano()->setValor(1)/*getCarta()->setValor(1)*/;
 			break;
 		}
 		default:
@@ -162,42 +162,42 @@ Jugador* Lista::getJugador(int in) {
 	return dynamic_cast<Jugador*>(tmp->getDato());
 }
 
-void Lista::guardarLista(std::ofstream& file)//guarda la lista de jugadores
-{
-	
-	file.open("registros.txt", std::ios::app);
+//void Lista::guardarLista(std::ofstream& file)//guarda la lista de jugadores
+//{
+//	
+//	file.open("registros.txt", std::ios::app);
+//
+//	if (!file.is_open()) { //hace verificación de si esta cerrado o abierto
+//		std::cout << "Error al abrir el archivo...\n";
+//	}
+//	Nodo* aux = inicio;
+//	while (aux != nullptr) {
+//		 aux->getDato()->guardarJugadorGenerico(file); //recurre al guardar de jugadorGenerico
+//
+//		 aux= aux->next; //Va a la siguiente posición
+//	}
+//	file.close();
+//}
 
-	if (!file.is_open()) { //hace verificación de si esta cerrado o abierto
-		std::cout << "Error al abrir el archivo...\n";
-	}
-	Nodo* aux = inicio;
-	while (aux != nullptr) {
-		 aux->getDato()->guardarJugadorGenerico(file); //recurre al guardar de jugadorGenerico
-
-		 aux= aux->next; //Va a la siguiente posición
-	}
-	file.close();
-}
 
 
-
-void Lista::leerLista(std::ifstream& file)
-{
-	
-	file.open("registros.txt", std::ios::in);
-
-	JugadorGenerico* jugadorArchi = nullptr;
-
-	if (!file.is_open()) {
-		std::cout << "Error al abrir el archivo...\n";
-	}
-	//revisar
-	Nodo* auxiliarArchivo = inicio;
-	while (auxiliarArchivo != nullptr) {
-		while ((jugadorArchi = auxiliarArchivo->getDato()->leerJugadorGenerico(file)) != nullptr) {
-			Insertar(jugadorArchi);
-		}
-		auxiliarArchivo = auxiliarArchivo->next;
-	}
-	file.close();
-}
+//void Lista::leerLista(std::ifstream& file)
+//{
+//	
+//	file.open("registros.txt", std::ios::in);
+//
+//	JugadorGenerico* jugadorArchi = nullptr;
+//
+//	if (!file.is_open()) {
+//		std::cout << "Error al abrir el archivo...\n";
+//	}
+//	//revisar
+//	Nodo* auxiliarArchivo = inicio;
+//	while (auxiliarArchivo != nullptr) {
+//		while ((jugadorArchi = auxiliarArchivo->getDato()->leerJugadorGenerico(file)) != nullptr) {
+//			Insertar(jugadorArchi);
+//		}
+//		auxiliarArchivo = auxiliarArchivo->next;
+//	}
+//	file.close();
+//}

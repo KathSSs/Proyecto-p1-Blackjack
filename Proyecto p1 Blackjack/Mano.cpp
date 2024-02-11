@@ -1,129 +1,128 @@
 #include "Mano.h"
-Mano::Mano(Mazo* m) : mazo(m)
-{   
-
-		cartUsadas = 0;
-		for (int i = 0; i < 10; i++) {
-			cartas[i] = mazo->tomarCarta(); // Inicializar con cartas del mazo
-		}
-	}
 
 
-
-Mano::Mano() {
-	cartUsadas = 0;
-	//mazo = nullptr;
-	for (int i = 0; i < 10; i++) {
-		cartas[i] = nullptr; // Inicializar todas las cartas como nulas
-	}
-}
-
-Mano::Mano(int cartUsadasArchi, Carta* cartasArchi[10])
+Mano::Mano()
 {
-	cartUsadas = cartUsadasArchi;
-	for (int i = 0; i < 10; i++) {
-		cartas[i] = cartasArchi[i];
-	}
+	inicio = nullptr;
+	cartUsadas = 0;
 }
 
 
 Mano::~Mano()
 {
-	for (int i = 0; i < 10; i++) {
-		if (cartas[i] != nullptr)
-			delete this->cartas[i];
-	}
+	if (inicio != nullptr)delete inicio;
 }
 
-void Mano::agregarCarta(Carta* nuevaCarta) {
-	if (cartUsadas < 10) {
-		cartas[cartUsadas] = nuevaCarta;
-		cartUsadas++;
-	}
-}
-
-
-bool Mano::limpiar()
+bool Mano::agregarCarta(Mazo* nuevaCarta)
 {
-	for (int i = 0; i < cartUsadas; i++) {
-		cartas[i] = nullptr; //podemos usarlo para la siguiente partida, por eso no se elimina el vector
-		cartUsadas = 0;
+	if (inicio == nullptr) {
+		inicio = new NodoMano(nuevaCarta, inicio);
+		cartUsadas++;
+		return true;
 	}
-	if (cartas[0] == nullptr)return true;
-	else return false;
+	else
+		if (inicio != nullptr) {
+			NodoMano* auxi = inicio;
+			auxi = auxi->getSiguiente();
+			NodoMano* nuevo = new NodoMano(nuevaCarta, nullptr);
+			auxi->setNodoMano(nuevo);
+			cartUsadas++;
+			return true;
+		}
+		else return false;
+}
+
+Mazo* Mano::getMazo()
+{
+	return getMazo();
 }
 
 int Mano::getPuntos()
 {
-	int sumaPuntosCartas = 0;
-	for (int i = 0; i < cartUsadas; i++) {
-		sumaPuntosCartas += cartas[i]->getValor();
-	}
-	return sumaPuntosCartas;
-}
+	NodoMano* auxi = inicio;
+	int sumaPuntos = 0;
+	if (auxi == nullptr)
+		sumaPuntos += 0;
+	else
+		while (auxi != nullptr) {
+			sumaPuntos += auxi->getCarta()->getValor();
+			auxi = auxi->getSiguiente();
+		}
 
-Carta* Mano::ultimaCarta() {
-	if ( cartUsadas== 0) {
-		return nullptr; 
-	}
-	return cartas[cartUsadas - 1]; 
-}
-
-
-Mazo* Mano::getMazo() { return mazo; }
-
-void Mano::voltea2()
-{
-	cartas[1]->voltear();
+	return sumaPuntos;
 }
 
 std::string Mano::toStringMano()
 {
+	NodoMano* auxi = inicio;
 	std::stringstream s;
-	for (int i = 0; i < cartUsadas; i++) {
-		s <<"  " << cartas[i]->Mostrar()<< "  ";
+	while (auxi != nullptr) {
+		auxi->getMazo()->tomarCarta()->Mostrar(); //Revisar
+		auxi = auxi->getSiguiente();
 	}
 	return s.str();
 }
 
-Carta* Mano::getCarta()
-{
-	for (int i = 0; i < cartUsadas; i++) {
-		return cartas[i];
+
+Carta* Mano::ultimaCarta() {
+	NodoMano* auxiliar = inicio;
+	NodoMano* aux2;
+	if (inicio!=nullptr) {
+		aux2 = auxiliar;
+		auxiliar = auxiliar->getSiguiente();
+	
 	}
+	return aux2->getCarta();
 }
 
+
+void Mano::voltea3()
+{
+	NodoMano* auxVoltea = inicio;
+	auxVoltea->getMazo()->voltea2();
+}
+
+Carta* Mano::getCartaMano()
+{
+	NodoMano* auxMano = inicio;
+	return (Carta*)auxMano->getMazo();
+	
+	
+}
 
 bool Mano::esAs() {
-		
-			if (getCarta()->getValor() == 1) {
-				return true;
-			}
-			else{
-				return false;
-			}
-}
-	
-void Mano::guardarMano(std::ofstream& file) {
-	file << cartUsadas << '\t';
-	for (int i = 0; i < cartUsadas; i++) {
-		 cartas[i]->guardarCarta(file);
-	}
-}
-
-Mano* Mano::leerMano(std::ifstream& file) {
-	Carta* cartasArchi[10];
-	std::string buffer;
-	int cartUsadasArchi=0;
-
-	while (std::getline(file, buffer)) {
-		std::istringstream linea{ buffer };
-		linea >> cartUsadasArchi;
-		for (int i = 0; i < cartUsadasArchi; i++) {
-			cartasArchi[i] = Carta::leerCarta(file);
+	NodoMano* auxAs = inicio;
+	if (auxAs != nullptr) {
+		if (auxAs->getCarta()->getValor() == 1) {
+			return true;
+		}
+		else {
+			auxAs = auxAs->getSiguiente();
 		}
 	}
-		return new Mano(cartUsadasArchi,cartasArchi);
-		file.close();
-	}
+	else return false;
+}
+	
+//void Mano::guardarMano(std::ofstream& file) {
+//	file << cant << '\t';
+//	for (int i = 0; i < cant; i++) {
+//		 cartas[i]->guardarCarta(file);
+//	}
+//}
+//
+//Mano* Mano::leerMano(std::ifstream& file) {
+//	Carta* cartasArchi[10];
+//	std::string buffer;
+//	int cartUsadasArchi=0;
+//
+//	while (std::getline(file, buffer)) {
+//		std::istringstream linea{ buffer };
+//		linea >> cartUsadasArchi;
+//		for (int i = 0; i < cartUsadasArchi; i++) {
+//			cartasArchi[i] = Carta::leerCarta(file);
+//		}
+//	}
+//		return new Mano(cartUsadasArchi,cartasArchi);
+//		file.close();
+//	}
 

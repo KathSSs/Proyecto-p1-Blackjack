@@ -32,10 +32,10 @@ Mano* JugadorGenerico::getMano() {
 	return mano; 
 }
 
-void  JugadorGenerico::guardarJugadorGenerico(std::ofstream& file) {
-	file << getName() << '\t';
-	mano->guardarMano(file);
-}
+//void  JugadorGenerico::guardarJugadorGenerico(std::ofstream& file) {
+//	file << getName() << '\t';
+//	mano->guardarMano(file);
+//}
 
 
 //Carta* JugadorGenerico::pedirCarta()

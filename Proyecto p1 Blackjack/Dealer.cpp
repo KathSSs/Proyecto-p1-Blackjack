@@ -23,7 +23,7 @@ Carta* Dealer::pedirCarta() {
 		Carta* nuevaCarta = mano->getMazo()->tomarCarta();
 
 		if (nuevaCarta != nullptr) {
-			mano->agregarCarta(nuevaCarta);
+			mano->agregarCarta((Mazo*)nuevaCarta);
 			std::cout << "Carta recibida: ";
 			nuevaCarta->Mostrar();
 			std::cout << std::endl;
@@ -39,7 +39,7 @@ Carta* Dealer::pedirCarta() {
 
 void Dealer::recibirCarta(Carta* carta) {
 	if (mano != nullptr) {
-		mano->agregarCarta(carta);
+		mano->agregarCarta((Mazo*)carta);
 	}
 	else {
 		std::cerr << "Error: El puntero 'mano' es nullptr." << std::endl;
@@ -63,19 +63,19 @@ bool Dealer::debePedirCarta(){
 
 void Dealer::volteaSegunda()
 {
-	mano->voltea2();
+	mano->voltea3();
 }
 
 Mano* Dealer::getMano() {
 	return mano;
 }
 
-JugadorGenerico* Dealer::leerJugadorGenerico(std::ifstream& file)//Cargando para leer jugador tipo dealer
-{
-	std::string name = "";
-	getline(file, name, '\t');
-
-	Mano* m = m->leerMano(file);
-
-	return new Dealer(m, name);
-}
+//JugadorGenerico* Dealer::leerJugadorGenerico(std::ifstream& file)//Cargando para leer jugador tipo dealer
+//{
+//	std::string name = "";
+//	getline(file, name, '\t');
+//
+//	Mano* m = m->leerMano(file);
+//
+//	return new Dealer(m, name);
+//}

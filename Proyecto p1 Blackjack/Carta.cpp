@@ -66,6 +66,7 @@ bool Carta::estaBocaAbajo() {
     return bocaAbajo;
 }
 
+
 void Carta::setValor(int v) { valor = v; }
 
 void Carta::guardarCarta(std::ofstream& file) {

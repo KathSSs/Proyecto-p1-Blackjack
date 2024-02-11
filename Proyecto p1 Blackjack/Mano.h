@@ -1,30 +1,33 @@
 #ifndef MANO_H
 #define MANO_H
-#include "Mazo.h"
+#include "NodoMano.h"
 #include <sstream>
 #include <fstream>
 class Mano{
 
 private:
-	Carta* cartas[10];
+	NodoMano* inicio;
 	int cartUsadas;
-	Mazo* mazo; //le entra el mazo para saber con que mazo estan jugando 
 public:
-	Mano(Mazo* m);
 	Mano();
-	Mano(int cartUsadasArchi, Carta* cartasArchi[10]);
-	~Mano();
-	void agregarCarta(Carta* nuevaCarta);
-	Mazo* getMazo(); 
-	bool limpiar(); //Comprueba que se eliminan las cartas de la mano de la partida anterior
+	Mano(Mazo*);
+	virtual ~Mano();
+	bool agregarCarta(Mazo* nuevaCarta);
+	
+
+	////Mazo* getMazo(); 
+	Mazo* getMazo();
 	int getPuntos();
-	void voltea2();
+	void voltea3();
 	Carta* ultimaCarta();
 	std::string toStringMano();
-	Carta* getCarta(); 
+	Carta* getCartaMano(); 
 	bool esAs(); 
-	void guardarMano(std::ofstream& file);
-	static Mano* leerMano(std::ifstream& file);
+
+
+	//Metodos de archivos 
+	/*void guardarMano(std::ofstream& file);
+	static Mano* leerMano(std::ifstream& file);*/
 	
 };
 

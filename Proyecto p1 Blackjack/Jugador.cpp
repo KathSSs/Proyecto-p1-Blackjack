@@ -12,7 +12,7 @@ Carta* Jugador::pedirCarta() {
 	Carta* nuevaCarta = mano->getMazo()->tomarCarta();
 
 	if (nuevaCarta != nullptr) {
-		mano->agregarCarta(nuevaCarta);
+		mano->agregarCarta((Mazo*)nuevaCarta);
 		std::cout << "Carta recibida: ";
 		nuevaCarta->Mostrar();  
 		std::cout << std::endl;
@@ -41,22 +41,22 @@ Mano* Jugador::getMano() {
 }
 
 void Jugador::agregarCarta(Carta* nuevaCarta) {
-	mano->agregarCarta(nuevaCarta);
+	mano->agregarCarta((Mazo*)nuevaCarta);
 }
 
 void Jugador::recibirCarta(Carta* carta) {
-	mano->agregarCarta(carta); // Agregar la carta recibida a la mano del jugador
+	mano->agregarCarta((Mazo*)carta); // Agregar la carta recibida a la mano del jugador
 }
 
-JugadorGenerico* Jugador::leerJugadorGenerico(std::ifstream& file)
-{
-	std::string name = "";
-	getline(file, name, '\t');
-
-	Mano* m = m->leerMano(file);
-
-	return new Jugador(m, name);
-}
+//JugadorGenerico* Jugador::leerJugadorGenerico(std::ifstream& file)
+//{
+//	std::string name = "";
+//	getline(file, name, '\t');
+//
+//	Mano* m = m->leerMano(file);
+//
+//	return new Jugador(m, name);
+//}
 
 bool Jugador::quiereCarta() {
 	char opcion;
