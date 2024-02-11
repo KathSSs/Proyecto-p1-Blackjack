@@ -27,15 +27,15 @@ void Juego::jugar()
 
 	// Validar la cantidad de jugadores
 	if (cantJugadores < 1 || cantJugadores > 7) {
-		std::cerr << "Número de jugadores inválido." << std::endl;
+		std::cerr << "Numero de jugadores invalido." << std::endl;
 		return;
 	}
-	// Crear mano del dealer
-	Mano* dealerM = new Mano(); //esto esta vacio
-	Dealer* dealerCPU = new Dealer(dealerM,"Dealer"); //comentar si utilizo pedirCarta o agrego otra como jugador
-	dealerCPU->pedirCarta();
-	dealerCPU->pedirCarta();
-	dealerCPU->volteaSegunda(); // Voltear la segunda carta del dealer
+	//// Crear mano del dealer
+	//Mano* dealerM = new Mano(); //esto esta vacio
+	//Dealer* dealerCPU = new Dealer(dealerM,"Dealer"); //comentar si utilizo pedirCarta o agrego otra como jugador
+	//dealerCPU->pedirCarta();
+	//dealerCPU->pedirCarta();
+	//dealerCPU->volteaSegunda(); // Voltear la segunda carta del dealer
 
 	// Crear jugadores y repartir cartas iniciales
 	for (int i = 0; i < cantJugadores; i++) {
@@ -110,8 +110,10 @@ void Juego::rondasJuego(Jugador* j )
 
 void Juego::menu() {
 	int opcion = 0;
-	
-
+	std::cout << "Bienvenido a Blackjack pecador adicto a las apuestas!\n";
+	std::cout << "\t1.Jugar nueva partida\t2.Cargar partida anterior\n";
+	std::cout << "Ingrese su opcion:  ";
+	std::cin >> opcion;
 	do {
 		switch (opcion)
 		{
@@ -129,3 +131,7 @@ void Juego::menu() {
 		}
 	} while (opcion <= 2);
 }
+
+//void Juego::mostrarJugadores() {
+//	listaJugadores.toString(); 
+//}

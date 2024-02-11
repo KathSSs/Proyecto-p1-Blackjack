@@ -15,7 +15,7 @@ public:
 	Juego();
 	~Juego();
 	void jugar();
-	void mostrarJugadores();
+	/*void mostrarJugadores();*/ 
 	void rondasJuego(Jugador*);
 	void menu();
 };

@@ -13,13 +13,13 @@ Mazo::~Mazo() {
 }
 
 void Mazo::inicializar() {
-    canCartas = 0; 
+    int cantidad = 0; 
     // Crear el mazo completo con 52 cartas
     int pos = 0;
     for (int palo = ESPADAS; palo <= TREBOLES; ++palo) {
         for (int valor = AS; valor <= KING; ++valor) {
             cartas[pos++] = new Carta(valor, static_cast<Palo>(palo), false);
-            canCartas++;
+            cantidad++;
         }
     }
 }
