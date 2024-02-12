@@ -17,6 +17,8 @@ void Juego::jugar()
 {
 	int cantJugadores = 0;
 	int opcion;
+	std::cout << "Ingrese la cantidad de jugadores: " << std:: endl;
+	std::cin >> cantJugadores;
 
 
 	if (baraja == nullptr) {
