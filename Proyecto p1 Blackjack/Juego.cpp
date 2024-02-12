@@ -31,14 +31,13 @@ void Juego::jugar()
 		return;
 	}
 	//// Crear mano del dealer
-	Mano* dealerM = new Mano(baraja); //esto esta vacio
+	Mano* dealerM = new Mano(baraja); 
 	Dealer* dealerCPU = new Dealer(dealerM,"Dealer"); //comentar si utilizo pedirCarta o agrego otra como jugador
-	
 		dealerCPU->pedirCarta();
 		dealerCPU->pedirCarta();
-	
-	
 	dealerCPU->volteaSegunda(); // Voltear la segunda carta del dealer
+	
+
 
 	// Crear jugadores y repartir cartas iniciales
 	for (int i = 0; i < cantJugadores; i++) {

@@ -7,12 +7,14 @@ class Mano{
 
 private:
 	Carta* cartas[10];
-	int cartUsadas;
+	int cant;
+	int tama; 
 	Mazo* mazo; //le entra el mazo para saber con que mazo estan jugando 
 public:
+
 	Mano(Mazo* m);
 	Mano();
-	Mano(int cartUsadasArchi, Carta* cartasArchi[10]);
+	Mano(int cartUsadasArchi, Carta* cartasArchi[10]);//Metodo de archivos 
 	~Mano();
 	void agregarCarta(Carta* nuevaCarta);
 	Mazo* getMazo(); 
@@ -23,6 +25,8 @@ public:
 	std::string toStringMano();
 	Carta* getCarta(); 
 	bool esAs(); 
+
+	//Metodos de archivos 
 	void guardarMano(std::ofstream& file);
 	static Mano* leerMano(std::ifstream& file);
 	

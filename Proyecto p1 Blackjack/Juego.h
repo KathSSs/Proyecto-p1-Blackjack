@@ -18,6 +18,7 @@ public:
 	/*void mostrarJugadores();*/ 
 	void rondasJuego(Jugador*);
 	void menu();
+	void pasarTurno(); 
 };
 
 
