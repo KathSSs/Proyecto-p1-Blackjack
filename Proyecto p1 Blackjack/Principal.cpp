@@ -1,5 +1,15 @@
 #include <iostream>
 #include "Juego.h"
+//
+//Universidad Nacional
+// Curso: Programación 1
+// 
+//Estudiantes:
+//Camila Fallas Jiménez 
+//Katherin Jara Arrollo
+//
+//Dirección del git: https://github.com/KathSSs/Proyecto-p1-Blackjack/tree/master
+
 
 int main() {
 	std::cout << "Recuerde que si el programa da errores\n   \tGANA LA CASA" << std::endl; 
