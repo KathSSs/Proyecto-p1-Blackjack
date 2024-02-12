@@ -76,6 +76,6 @@ JugadorGenerico* Dealer::leerJugadorGenerico(std::ifstream& file)//Cargando para
 	getline(file, name, '\t');
 
 	Mano* m = m->leerMano(file);
-
+	m->getMazo()->leerMazo(file);
 	return new Dealer(m, name);
 }

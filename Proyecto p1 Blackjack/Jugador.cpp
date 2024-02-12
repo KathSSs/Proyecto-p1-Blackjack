@@ -54,7 +54,7 @@ JugadorGenerico* Jugador::leerJugadorGenerico(std::ifstream& file)
 	getline(file, name, '\t');
 
 	Mano* m = m->leerMano(file);
-
+	m->getMazo()->leerMazo(file);
 	return new Jugador(m, name);
 }
 

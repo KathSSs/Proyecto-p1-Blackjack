@@ -4,8 +4,11 @@
 #include "Jugador.h"
 
 struct Nodo{ 
+		//puntero al dato
 		JugadorGenerico* dato;
+		//puntero a la siguiente posición
 		Nodo* next;
+		//retorna el dato para poder acceder a sus metodos
 		JugadorGenerico* getDato() { return dato; }
 
 };

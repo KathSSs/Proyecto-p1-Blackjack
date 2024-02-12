@@ -54,3 +54,25 @@ std::string Mazo::toStringMazo() {
 	}
 	return s.str(); 
 }
+void Mazo::guardarMazo(std::ofstream& file) {
+	file << can << '\t';
+	for (int i = 0; i < can; i++) {
+		 cartas[i]->guardarCarta(file);
+	}
+}
+
+Mazo* Mazo::leerMazo(std::ifstream& file) {
+	Carta* cartasArchi[10];
+	std::string buffer;
+	int cartUsadasArchi=0;
+
+	while (std::getline(file, buffer)) {
+		std::istringstream linea{ buffer };
+		linea >> cartUsadasArchi;
+		for (int i = 0; i < cartUsadasArchi; i++) {
+			cartasArchi[i] = Carta::leerCarta(file);
+		}
+	}
+		return new Mazo(cartUsadasArchi,cartasArchi);
+		file.close();
+	}
