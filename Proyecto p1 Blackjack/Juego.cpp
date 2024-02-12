@@ -9,9 +9,16 @@ Juego::~Juego() {
 		delete baraja;
 	}
 }
+
+
+
+
 void Juego::jugar()
 {
+	int cantJugadores = 0;
 	int opcion;
+
+
 	if (baraja == nullptr) {
 		baraja = new Mazo();
 	}
@@ -19,17 +26,15 @@ void Juego::jugar()
 	/*baraja->inicializar();*/
 	baraja->barajar();
 
-	int cantJugadores = 0;
 
-	// Solicitar el número de jugadores
-	std::cout << "\tIngrese el numero de jugadores\t" << std::endl;
-	std::cin >> cantJugadores;
-
+	
 	// Validar la cantidad de jugadores
 	if (cantJugadores < 1 || cantJugadores > 7) {
 		std::cerr << "Numero de jugadores invalido." << std::endl;
 		return;
 	}
+
+
 	//// Crear mano del dealer
 	Mano* dealerM = new Mano(baraja); 
 	Dealer* dealerCPU = new Dealer(dealerM,"Dealer"); //comentar si utilizo pedirCarta o agrego otra como jugador
@@ -42,30 +47,31 @@ void Juego::jugar()
 	// Crear jugadores y repartir cartas iniciales
 	for (int i = 0; i < cantJugadores; i++) {
 		std::string nombre;
-		std::cout << "Ingrese el nombre del jugador " << i + 1 << ": ";
+		std::cout << "Ingrese el nombre del jugador " << ": ";
 		std::cin >> nombre;
 
-		Mano* manoJ = new Mano(baraja); 
-		Jugador* jugador = new Jugador(manoJ,nombre);
+		Mano* manoJ = new Mano(baraja);
+		Jugador* jugador = new Jugador(manoJ, nombre);
 		jugador->agregarCarta(baraja->tomarCarta()); // Repartir carta inicial
 		jugador->agregarCarta(baraja->tomarCarta()); // Repartir segunda carta
 		listaJugadores.Insertar(jugador);
+		listaJugadores.toString();
 	}
 
-	listaJugadores.toString();
+	
 
 	// Turno de los jugadores
 	for (int i = 0; i < cantJugadores; i++) {
 		Jugador* jugador = listaJugadores.getJugador(i);
 		std::cout << "Turno de " << jugador->getName() << ": " << std::endl;
-
+		std::cout << std::endl;
 		// Mostrar la mano actual del jugador
 		std::cout << "Mano actual: " << jugador->getMano()->toStringMano() << std::endl;
 		//opciones
+		
 		rondasJuego(jugador);
-
 	}
-
+	
 
 
 
@@ -89,7 +95,12 @@ void Juego::rondasJuego(Jugador* j )
 		case 2: {
 			// El jugador pasa su turno
 			std::cout << "El jugador pasa su turno." << std::endl;
-			
+			for (int i = 0; i < listaJugadores.cuentaNodos(); ++i) {
+				Jugador* jugadorActual = listaJugadores.getJugador(i);
+				if (jugadorActual != j) {
+					rondasJuego(jugadorActual);
+				}
+			}
 			break;
 		}
 		case 3: {
@@ -112,7 +123,7 @@ void Juego::rondasJuego(Jugador* j )
 
 void Juego::menu() {
 	int opcion = 0;
-	std::cout << "Bienvenido a Blackjack pecador adicto a las apuestas!\n";
+	std::cout << "______________________Bienvenido a Blackjack!_______________\n";
 	std::cout << "\t1.Jugar nueva partida\t2.Cargar partida anterior\n";
 	std::cout << "Ingrese su opcion:  ";
 	std::cin >> opcion;

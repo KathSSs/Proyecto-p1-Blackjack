@@ -13,8 +13,8 @@ public:
 	~Lista();
 	Nodo* getInicio();
 	void Insertar(JugadorGenerico*);
-	Jugador* getJugador(int i);
-	Nodo* Buscar(Nodo* ); 
+	Jugador* getJugador(int);
+	Nodo* Buscar(Nodo*); 
 	void borrar(Nodo*); 
 	bool listaVacia();
 	std::string toString();
@@ -25,6 +25,7 @@ public:
 	void guardarLista(std::ofstream& file);
 	void leerLista(std::ifstream& file);
 
+	JugadorGenerico* sigJug();
 };
 
 #endif

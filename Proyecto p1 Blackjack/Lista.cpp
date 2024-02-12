@@ -61,6 +61,12 @@ Nodo* Lista::Buscar(Nodo* no) {
 	}
 
 }
+JugadorGenerico* Lista::sigJug() {
+	Nodo* tmp = inicio;
+	JugadorGenerico* jugnext = nullptr;
+	jugnext = tmp->next->getDato();
+	return jugnext;
+}
 
 void Lista::borrar(Nodo* m) {
 	Nodo* tmp = Buscar(m);

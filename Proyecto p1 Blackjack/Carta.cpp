@@ -17,6 +17,7 @@ std::string Carta::Mostrar(){
     std::stringstream s;
     if (bocaAbajo) {
         s<< "Carta boca abajo" << std::endl;
+        s << std::endl;
         s<< "  ----------------------  " << std::endl;
         s<< "  |\t" << "        " << "\t|" << std::endl;
         s<< "  |\t" << "        " << "\t|" << std::endl;
@@ -50,6 +51,7 @@ std::string Carta::Mostrar(){
             paloStr = "Desconocido";
             break;}
         }
+        s << std::endl;
         s<< "  ----------------------  " << std::endl;
         s<< "  |" << paloStr << "\t\t|" << std::endl;
         s<< "  |\t" << "        " << "\t|" << std::endl;
